@@ -21,7 +21,7 @@ public class CharaBase : MonoBehaviour
     // 血量改变时 [原始值，目标值]
     public UnityAction<float, float> OnHealthChange;
 
-    [ShowInInspector,LabelText("血量")]
+    [ShowInInspector, LabelText("血量")]
     public float Health
     {
         get
@@ -39,6 +39,10 @@ public class CharaBase : MonoBehaviour
     [ShowInInspector, LabelText("移动速度")]
     public float MoveSpeed;
 
+    protected Rigidbody2D rb;
 
-
+    private void Awake()
+    {
+        rb = transform.GetComponent<Rigidbody2D>();
+    }
 }
