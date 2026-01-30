@@ -26,14 +26,15 @@ public class CharaBase : MonoBehaviour
     {
         get
         {
-            return Health;
+            return m_Health;
         }
         set
         {
-            OnHealthChange?.Invoke(Health, value);
-            Health = value;
+            OnHealthChange?.Invoke(m_Health, value);
+            m_Health = value;
         }
     }
+    private float m_Health;
 
     [ShowInInspector, LabelText("移动速度")]
     public float MoveSpeed;
