@@ -9,13 +9,13 @@ public enum MusicType
 {
     None,
 
-    一阶段_开始,
-    一阶段_中段,
+    State1_begin,
+    State1_middle,
 
-    二阶段,
-    三阶段,
-    四阶段,
-    演都不演了,
+    State2,
+    State3,
+    State4,
+    Boom,
 }
 
 /// <summary> 音效类型 </summary>
@@ -155,7 +155,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(MusicType _musicType, bool _playImmediately = false)
+    public AudioSourceAttach PlayMusic(MusicType _musicType, bool _playImmediately = false)
     {
         AudioClip clip = Resources.Load<AudioClip>($"AudioClips/Music/{_musicType}");
 
@@ -169,6 +169,7 @@ public class AudioManager : MonoBehaviour
             }
             OnPlayMusic = _musicType;
         }
+        return MusicSource;
     }
 
 }

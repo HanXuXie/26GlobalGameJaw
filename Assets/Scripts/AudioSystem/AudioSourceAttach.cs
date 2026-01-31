@@ -9,7 +9,7 @@ public class AudioSourceAttach : MonoBehaviour
 
     public UnityAction OnCompleteEvent;
 
-    public AttackInfo OnPlay { get; private set; }
+    public AttachInfo OnPlay { get; private set; }
     public float volume 
     { 
         get => audioSource.volume;
@@ -20,13 +20,13 @@ public class AudioSourceAttach : MonoBehaviour
         get => audioSource.clip;
         set { audioSource.clip = value; }
     }
-    public class AttackInfo
+    public class AttachInfo
     {
         public bool hasComplete;
         public Coroutine coroutine;
         public UnityAction completeEvent;
 
-        public AttackInfo()
+        public AttachInfo()
         {
             hasComplete = false;
         }
@@ -35,26 +35,31 @@ public class AudioSourceAttach : MonoBehaviour
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+        OnPlay = null;
     }
 
-    public void Play()
+    public AudioSourceAttach Play()
     {
         if(OnPlay != null)
         {
             if (OnPlay.coroutine != null)
                 StopCoroutine(OnPlay.coroutine);
-            if (!OnPlay.hasComplete)
-                OnPlay.completeEvent?.Invoke();
+
+            //if (!OnPlay.hasComplete)
+            //    OnPlay.completeEvent?.Invoke();
+
             OnPlay = null;
         }
 
-        var audioAttack = new AttackInfo();
-        var completeAction = new UnityAction(OnCompleteEvent);
+        var audioAttack = new AttachInfo();
+        var completeAction = new UnityAction(() => { OnCompleteEvent?.Invoke(); });
         var timer = StartCoroutine(attckTimer(audioAttack));
         audioAttack.completeEvent += completeAction;
         audioAttack.coroutine = timer;
+        OnPlay = audioAttack;
 
         audioSource.Play();
+        return this;
     }
 
     public void DestoryData()
@@ -64,7 +69,7 @@ public class AudioSourceAttach : MonoBehaviour
         OnPlay = null;
     }
 
-    IEnumerator attckTimer(AttackInfo _attackInfo)
+    IEnumerator attckTimer(AttachInfo _attackInfo)
     {
         float leng = audioSource.clip.length;
 
