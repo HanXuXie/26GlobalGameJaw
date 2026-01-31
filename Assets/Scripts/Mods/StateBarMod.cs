@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StateBarMod : MonoBehaviour
 {
-    public static float FadeDeltaTime = 5f;
+    public static float FadeDeltaTime = 3f;
 
     public SpriteRenderer Infection_old;
     public SpriteRenderer Infection_now;
