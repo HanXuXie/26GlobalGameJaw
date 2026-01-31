@@ -231,7 +231,7 @@ public class NPC : CharaBase
                     break;
 
                 case MoveState.Pathing:
-                    if(PathingPointList != null && PathingPointList.Count > 0)
+                    if(PathingPointList != null && PathingPointList.Count > 0 && (MovePath == null || MovePath.Count == 0))
                     {
                         List<Vector3> WordPath = new List<Vector3>();
                         PathingPointList.ForEach(point=>WordPath.Add(point.position));
