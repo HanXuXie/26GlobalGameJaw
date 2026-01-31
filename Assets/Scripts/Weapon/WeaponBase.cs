@@ -12,10 +12,9 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    [LabelText("Weapon Attribution")]
-    public float weaponDamage { get; private set; }
-    public float weaponAttackInterval { get; private set; }
-    public float weaponRange { get; private set; }
+    public float weaponDamage;
+    public float weaponAttackInterval;
+    public float weaponRange;
 
     protected float weaponCooldown;
     protected bool isAttack = true;

@@ -196,8 +196,6 @@ public class NPC : CharaBase
     protected override void Start()
     {
 
-
-
         CanEnterNormal += () =>
         {
             if (!isAlert && !isAttack)
@@ -266,6 +264,8 @@ public class NPC : CharaBase
         // 这里使用DrawWireSphere绘制球体的线框，对于2D来说就是圆
         Gizmos.DrawWireSphere(transform.position, alertRadius);
     }
+
+
 
 
     protected override void Update()
