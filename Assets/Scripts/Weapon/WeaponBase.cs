@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,26 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
-    [SerializeField] protected float weaponDamage;
-    [SerializeField] protected float weaponAttackInterval;
-    [SerializeField] protected float weaponRange;
+    [LabelText("Weapon Attribution")]
+    public float weaponDamage { get; private set; }
+    public float weaponAttackInterval { get; private set; }
+    public float weaponRange { get; private set; }
 
-    protected virtual void AttackMode(CharaBase[] targets)
+    protected float weaponCooldown;
+    protected bool isAttack = true;
+
+    protected virtual void Update()
     {
+        if (weaponCooldown <= 0)
+        {
+            isAttack = true;
+        }
+        weaponCooldown -= Time.deltaTime;
+    }
 
+    protected virtual bool AttackMode(CharaBase[] targets)
+    {
+        return false;
     }
 
 }
