@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -10,8 +11,16 @@ public class Weapon_Bite : WeaponBase
     {
         if (!isAttack) return false;
         if (target == null) return false;
-        target.Health -= weaponDamage;
+
+        float distance = Vector2.Distance(transform.position, target.transform.position);
+
+        if(distance > weaponRange) return false;
+
         //调用咬合特效
+
+        Instantiate()
+
+        target.Health -= weaponDamage;
 
         return true;
     }

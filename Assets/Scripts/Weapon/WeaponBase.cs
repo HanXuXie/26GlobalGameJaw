@@ -11,7 +11,7 @@ using UnityEngine;
 //    Pistol
 //}
 
-public class WeaponBase : MonoBehaviour
+public abstract class WeaponBase : MonoBehaviour
 {
     public CharaBase Chara;
     public float weaponDamage;
@@ -36,9 +36,7 @@ public class WeaponBase : MonoBehaviour
         weaponCooldown -= Time.deltaTime;
     }
 
-    public virtual bool AttackMode(CharaBase targets)
-    {
-        return false;
-    }
+    public abstract bool AttackMode(CharaBase targets);
+
 
 }

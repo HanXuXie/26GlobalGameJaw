@@ -267,7 +267,7 @@ public class NPC : CharaBase
         {
             if (attackTarget != null)
             {
-                Weapon.AttackMode()
+                Weapon.AttackMode(attackTarget);
             }
 
 
