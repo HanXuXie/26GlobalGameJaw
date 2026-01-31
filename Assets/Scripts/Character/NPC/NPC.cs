@@ -72,6 +72,7 @@ public class NPC : CharaBase
             OnInfectionChange?.Invoke(m_currentInfectionValue, value);
             m_currentInfectionValue = value;
         }
+
     }
     [SerializeField] private float m_currentInfectionValue;
 
@@ -204,6 +205,11 @@ public class NPC : CharaBase
             if (collider.name == "Vision")
                 Vision = collider;
         }
+
+        OnInfectionChange += (old, now) =>
+        {
+            stateBar.OnInfectionChange(old, now, maxInfectionValue);
+        };
     }
 
     protected override void Start()
