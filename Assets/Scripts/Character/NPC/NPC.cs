@@ -158,9 +158,13 @@ public class NPC : CharaBase
         }
     }
 
+
     protected virtual void AttackDetection()
     {
-
+        if(attackTarget != null)
+        {
+            isAttack = true;
+        }
     }
     #endregion
 
