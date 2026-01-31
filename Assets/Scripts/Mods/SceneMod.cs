@@ -5,20 +5,36 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static UnityEngine.GraphicsBuffer;
 
+[System.Serializable]
+public struct Tile2Sprite
+{
+    public Tile tile;
+    public Sprite sprite;
+}
+
 public class SceneMod : MonoBehaviour
 {
     public static SceneMod Instance { get; private set; }
+
+    public Tile2Sprite[] Tile2Sprites;
+    public GameObject SpriteTilePrefab;
 
     [Space(10)]
     [Header("网格预设")]
     public Tilemap Map_Barrier;
     public Tilemap Map_Build;
+    public Tilemap Map_Ground;
+    public Tilemap Map_Wall1;
+    public Tilemap Map_Wall2;
+
 
     [Space(10)]
     [Header("瓦片预设")]
     public List<Tile> Tile_Barrier;
     public List<Tile> Tile_Build;
     public List<Tile> Tile_Blank;
+
+    private Dictionary<Tile, Sprite> tileSpriteDict;
 
     private void Awake()
     {
@@ -32,6 +48,10 @@ public class SceneMod : MonoBehaviour
 
         Map_Barrier = transform.Find("Grid/BarrierMap").GetComponent<Tilemap>();
         Map_Build = transform.Find("Grid/BarrierMap").GetComponent<Tilemap>();
+
+        BuildLookup_Tile2Sprite();
+        GenerateFromTilemap(Map_Wall1);
+        GenerateFromTilemap(Map_Wall2);
     }
 
     #region Test
@@ -255,5 +275,49 @@ public class SceneMod : MonoBehaviour
             _cellPos + new Vector3Int(-1, -1, 0),
         };
     }
+
+    // 构建查表结构
+    void BuildLookup_Tile2Sprite()
+    {
+        tileSpriteDict = new Dictionary<Tile, Sprite>();
+
+        foreach (var pair in Tile2Sprites)
+        {
+            if (pair.tile != null && pair.sprite != null)
+            {
+                tileSpriteDict[pair.tile] = pair.sprite;
+            }
+        }
+    }
+
+    void GenerateFromTilemap(Tilemap tilemap)
+    {
+        if (tilemap == null) return;
+
+        foreach (var pos in tilemap.cellBounds.allPositionsWithin)
+        {
+            Tile tile = tilemap.GetTile<Tile>(pos);
+            if (tile == null) continue;
+
+            if (!tileSpriteDict.TryGetValue(tile, out var sprite))
+                continue;
+
+            Vector3 worldPos = tilemap.GetCellCenterWorld(pos);
+
+            GameObject go = Instantiate(
+                SpriteTilePrefab,
+                worldPos,
+                Quaternion.identity,
+                transform
+            );
+            go.SetActive(true);
+            SpriteRenderer sr = go.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sprite = sprite;
+            }
+        }
+    }
+
     #endregion
 }

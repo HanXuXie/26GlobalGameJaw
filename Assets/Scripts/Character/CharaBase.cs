@@ -246,6 +246,8 @@ public class CharaBase : MonoBehaviour
                 animControl.onWalk(true);
                 // 根据移动方向左右翻转物体
                 animControl.Flip(MoveTarget.x < transform.position.x);
+                // 根据前进方向旋转视角
+                visionAttach?.TurnLook(MoveTarget);
             }
 
             transform.position = Vector3.MoveTowards(
