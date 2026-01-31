@@ -59,7 +59,7 @@ public class StateBarMod : MonoBehaviour
     }
     #endregion
 
-    public void OnInfectionChange(float _old, float _new, float _total)
+    public void OnInfectionChange(float _old, float _now, float _total)
     {
         LastChangeTime_Infection = Time.time;
 
@@ -67,9 +67,8 @@ public class StateBarMod : MonoBehaviour
         Infection_old.gameObject.SetActive(true);
 
         // 更新条长度
-        SetLoaclScale_X(Infection_now.transform, OrginScale_Infection * (_old / _total));
-        SetLoaclScale_X(Infection_old.transform, OrginScale_Infection * (_old / _total));
-
+        UpdateBar(Infection_old.transform, _old, _total, OrginScale_Infection);
+        UpdateBar(Infection_now.transform, _now, _total, OrginScale_Infection);
     }
 
     public void OnHealthChange(float _old, float _now, float _total)
@@ -80,16 +79,30 @@ public class StateBarMod : MonoBehaviour
         Health_old.gameObject.SetActive(true);
 
         // 更新条长度
-        SetLoaclScale_X(Health_old.transform, OrginScale_Health * (_old / _total));
-
-        SetLoaclScale_X(Health_now.transform, OrginScale_Health * (_now / _total));
+        UpdateBar(Health_old.transform, _old, _total, OrginScale_Health);
+        UpdateBar(Health_now.transform, _now, _total, OrginScale_Health);
 
     }
 
     #region 工具函数
-    public void SetLoaclScale_X(Transform _base, float x)
+
+    private void UpdateBar(Transform _bar, float _valueX, float _total, float _originalScaleX)
     {
-        _base.localScale = new Vector3(x, _base.localScale.y, _base.localScale.z);
+        Vector3 _originalScale = _bar.localScale;
+        _originalScale.x = _originalScaleX;
+
+        float targetScaleX = (_valueX / _total) * _originalScale.x;
+
+        // 缩放
+        Vector3 newScale = _bar.localScale;
+        newScale.x = targetScaleX;
+        _bar.localScale = newScale;
+
+        // 位置纠正
+        float deltaX = (_originalScale.x - targetScaleX) * 0.5f;
+        Vector3 newPos = _bar.localPosition;
+        newPos.x = -deltaX;
+        _bar.localPosition = newPos;
     }
     #endregion
 }

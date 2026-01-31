@@ -32,9 +32,9 @@ public enum CharaState
 
 public class CharaBase : MonoBehaviour
 {
-    // 血量改变时 [原始值，目标值]
-    public UnityAction<float, float> OnHealthChange;
-
+    
+    [SerializeField, LabelText("血量")]
+    private float m_Health;
     public float Health
     {
         get
@@ -48,11 +48,24 @@ public class CharaBase : MonoBehaviour
         }
     }
 
-    [SerializeField, LabelText("血量")]
-    private float m_Health;
 
-    [ShowInInspector, LabelText("移动速度")]
+    [Space(10)]
+    [Header("角色移动状态")]
+
+    [LabelText("移动状态")]
+    public MoveState MoveStateNow;
+
+    [LabelText("移动速度")]
     public float MoveSpeed;
+    private bool ifInPathing => MoveStateNow == MoveState.Pathing;
+
+    [ShowIf("ifInPathing"), LabelText("路径点列表")]
+    public List<Transform> PathingPointList;
+
+    #region Callbacks
+    // 血量改变时 [原始值，目标值]
+    public UnityAction<float, float> OnHealthChange;
+    #endregion
 
     protected Rigidbody2D rb;
 
