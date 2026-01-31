@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 
 public class Weapon_Baton : WeaponBase
@@ -10,8 +11,10 @@ public class Weapon_Baton : WeaponBase
         if (!isAttack) return false;
 
         if (target == null) return false;
+        Debug.Log("攻击");
 
-        this.transform.LookAt(target.transform);
+        this.transform.LookAt(target.transform,Vector3.up);
+        transform.Rotate(0, -90, 0);
 
 
 
