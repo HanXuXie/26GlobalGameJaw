@@ -198,10 +198,6 @@ public class NPC : CharaBase
     {
         base.Awake();
 
-        Weapon = GetComponentInParent<WeaponBase>();
-
-        if (Weapon != null) hasWeapon = true;
-
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
@@ -212,6 +208,9 @@ public class NPC : CharaBase
 
     protected override void Start()
     {
+        Weapon = GetComponentInChildren<WeaponBase>();
+        if (Weapon != null) hasWeapon = true;
+
 
         CanEnterNormal += () =>
         {
