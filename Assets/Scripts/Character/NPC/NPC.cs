@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class NPC : CharaBase
 {
     public Collider2D Vision;
- 
+
     public LayerMask detectionMask;
 
     List<CharaBase> CharaBases = new List<CharaBase>();
@@ -18,7 +18,7 @@ public class NPC : CharaBase
 
         Debug.Log(detectionMask.value);
 
-        if ((collision.gameObject.layer & detectionMask.value) !=0)
+        if (collision.gameObject.layer == 9)
         {
             Debug.Log("检测到视野层");
             return;
@@ -33,7 +33,7 @@ public class NPC : CharaBase
             CharaBases.Add(target);
         }
 
-        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this,CharaBases);
+        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
     }
 
 
@@ -160,17 +160,25 @@ public class NPC : CharaBase
 
     protected virtual void AttackDetection()
     {
-        
+
     }
     #endregion
 
-    private void Awake()
+    protected void Awake()
     {
-        
+        Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D collider in colliders)
+        {
+            collider.name = "Vision";
+            Vision = collider;
+        }
     }
 
     protected override void Start()
     {
+
+
+
         CanEnterNormal += () =>
         {
             if (!isAlert && !isAttack)
@@ -203,7 +211,7 @@ public class NPC : CharaBase
 
         OnAlertUpdate += () =>
         {
-            
+
         };
 
         OnAttackUpdate += () =>
@@ -215,14 +223,15 @@ public class NPC : CharaBase
     protected override void Update()
     {
         base.Update();
+        Vision.transform.localScale = new Vector3(visionRadius, visionRadius, visionRadius);
         ChangeAlert();
         AlertDetection();
         InfectionDetection();
 
-        
+
 
     }
 
-    
+
 
 }

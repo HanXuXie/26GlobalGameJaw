@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_Layer
-      value: 20
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7006002496321813689, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -122,10 +122,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1215342784064703831}
-    - targetCorrespondingSourceObject: {fileID: 4107493354505372233, guid: 6a180327b36923b4b8ec1215d8466e35,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 794037392696194802}
     - targetCorrespondingSourceObject: {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       insertIndex: -1
@@ -184,8 +180,13 @@ PolygonCollider2D:
     - - {x: 0, y: 0.07112205}
       - {x: -0.01688677, y: 0.03896305}
       - {x: 0.004614413, y: 0.053043306}
-      - {x: 4.8381915, y: -1.3962982}
-      - {x: 4.834382, y: 1.5460289}
+      - {x: 4.681727, y: -1.3215586}
+      - {x: 5.008184, y: -1.09857}
+      - {x: 5.2113223, y: -0.7295114}
+      - {x: 5.3782783, y: 0.012015499}
+      - {x: 5.281348, y: 0.7819825}
+      - {x: 5.154266, y: 1.2415305}
+      - {x: 4.8153467, y: 1.5346798}
   m_UseDelaunayMesh: 0
 --- !u!1 &7021825482523835406 stripped
 GameObject:
@@ -206,41 +207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Health: 0
+  MoveStateNow: 0
   MoveSpeed: 0
+  PathingPointList: []
   StateNow: 0
-  Vision: {fileID: 0}
-  detectionMask:
-    serializedVersion: 2
-    m_Bits: 1048576
-  <alertRadius>k__BackingField: 0
-  <visionRadius>k__BackingField: 0
-  <maxInfectionValue>k__BackingField: 0
-  m_currentInfectionValue: 0
-  <InfectionResistance>k__BackingField: 0
-  isInfection: 0
-  <maxAlertValue>k__BackingField: 0
-  <alertChangeSpeed>k__BackingField: 0
-  m_currentAlertValue: 0
-  <isAlert>k__BackingField: 0
-  <isAttack>k__BackingField: 0
-  attackTarget: {fileID: 0}
-  <hasWeapon>k__BackingField: 0
---- !u!114 &794037392696194802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021825482523835406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c75ba04d6957140927a9321c0a45e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Health: 0
-  MoveSpeed: 0
-  StateNow: 0
-  Vision: {fileID: 0}
+  Vision: {fileID: 639341235910940391}
   detectionMask:
     serializedVersion: 2
     m_Bits: 0

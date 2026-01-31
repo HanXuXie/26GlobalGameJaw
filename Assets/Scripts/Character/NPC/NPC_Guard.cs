@@ -33,7 +33,7 @@ public class NPC_Guard : NPC
     {
         base.ChangeInfection(infectionSpeed);
 
-        CurrentInfectionValue += infectionSpeed * Time.deltaTime;
+        CurrentInfectionValue += infectionSpeed * Time.deltaTime /(InfectionResistance + infectionSpeed * Time.deltaTime);
     }
 
     
@@ -41,5 +41,6 @@ public class NPC_Guard : NPC
     protected override void Update()
     {
         base.Update();
+        ChangeInfection(0.01f);
     }
 }

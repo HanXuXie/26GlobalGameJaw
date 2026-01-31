@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1314022980402074292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC_Guard Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1215342784064703831, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6783773290762424325}
+  m_SourcePrefab: {fileID: 100100000, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
+--- !u!1 &8308809135249338042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1314022980402074292}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6783773290762424325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308809135249338042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229657489241292429e02c0b7e277f13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 0
+  MoveStateNow: 0
+  MoveSpeed: 0
+  PathingPointList: []
+  StateNow: 0
+  Vision: {fileID: 0}
+  detectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  <alertRadius>k__BackingField: 0
+  <visionRadius>k__BackingField: 0
+  <maxInfectionValue>k__BackingField: 0
+  m_currentInfectionValue: 0
+  <InfectionResistance>k__BackingField: 0
+  isInfection: 0
+  <maxAlertValue>k__BackingField: 0
+  <alertChangeSpeed>k__BackingField: 0
+  m_currentAlertValue: 0
+  <isAlert>k__BackingField: 0
+  <isAttack>k__BackingField: 0
+  attackTarget: {fileID: 0}
+  <hasWeapon>k__BackingField: 0
