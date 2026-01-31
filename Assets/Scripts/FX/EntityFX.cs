@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityFX : MonoBehaviour
 {
-    protected SpriteRenderer sr;
+    public SpriteRenderer sr;
 
     [Header("Flash FX")]
     [SerializeField] private float flashDuration;

@@ -23,7 +23,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-        Chara = GetComponentInParent<CharaBase>();
+        
     }
 
 
