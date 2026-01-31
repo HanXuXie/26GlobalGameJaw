@@ -22,6 +22,8 @@ public class Weapon_Bite : WeaponBase
 
         if (distance > weaponRange) return false;
 
+        weaponCooldown = weaponAttackInterval;
+
         //调用咬合特效
 
         GameObject bite = Instantiate(BitePrefab, target.transform);
@@ -29,6 +31,8 @@ public class Weapon_Bite : WeaponBase
         StartCoroutine(DestroyBite(bite));
 
         target.TakeDamage(weaponDamage);
+
+        weaponCooldown = weaponAttackInterval;
 
         return true;
     }

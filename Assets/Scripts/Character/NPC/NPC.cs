@@ -10,6 +10,10 @@ public class NPC : CharaBase
     public UnityAction<float, float> OnAlertChange;
 
     public Collider2D Vision;
+
+    public float CurrentVisionTime;
+    public float MaxVisionTime = 1f;
+
     [field: SerializeField] public float visionRadius { get; private set; }
 
     public LayerMask detectionMask;
@@ -26,11 +30,8 @@ public class NPC : CharaBase
 
         if (collision.gameObject.layer == 9)
         {
-            Debug.Log("检测到视野层");
             return;
         }
-
-        Debug.Log(collision.ToString());
 
         CharaBase target = collision.GetComponentInParent<CharaBase>();
 
@@ -39,9 +40,10 @@ public class NPC : CharaBase
             CharaBases.Add(target);
         }
 
-        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
+        AttackTargetUpdate();
 
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -52,7 +54,23 @@ public class NPC : CharaBase
             CharaBases.Remove(target);
         }
 
-        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
+        AttackTargetUpdate();
+    }
+    public void AttackTargetUpdate()
+    {
+        CharaBase newTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
+
+        if (newTarget != null)
+        {
+            CurrentVisionTime = MaxVisionTime;
+            attackTarget = newTarget;
+        }
+
+        if (CurrentVisionTime < 0)
+        {
+            attackTarget = null;
+        }
+
     }
 
     #endregion
@@ -276,11 +294,33 @@ public class NPC : CharaBase
         OnAlertUpdate += () =>
         {
             Debug.Log("警戒状态");
+
+            if (attackTarget != null)
+            {
+                visionAttach.SetLookAt(attackTarget.transform);
+                animControl.LookAt(attackTarget.transform);
+            }
+            else
+            {
+                visionAttach.UnSetLookAt();
+            }
+
         };
 
         OnAttackUpdate += () =>
         {
             Debug.Log("攻击状态");
+
+            if (attackTarget != null)
+            {
+                visionAttach.SetLookAt(attackTarget.transform);
+                animControl.LookAt(attackTarget.transform);
+            }
+            else
+            {
+                visionAttach.UnSetLookAt();
+            }
+
             if (attackTarget != null)
             {
                 Weapon.AttackMode(attackTarget);
@@ -309,6 +349,7 @@ public class NPC : CharaBase
     {
         base.Update();
         AlertTime -= Time.deltaTime;
+        CurrentVisionTime -= Time.deltaTime;
 
         Vision.transform.localScale = new Vector3(visionRadius, visionRadius, visionRadius);
         ChangeAlert();
