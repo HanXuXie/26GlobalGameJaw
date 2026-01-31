@@ -74,6 +74,17 @@ public class CharaBase : MonoBehaviour
         rb = transform.GetComponent<Rigidbody2D>();
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+        Update_StateMachine();
+        Update_Move();
+    }
+
     #region 状态机
     [Space(10)]
     [Header("角色逻辑状态")]
@@ -87,12 +98,7 @@ public class CharaBase : MonoBehaviour
     public UnityAction OnAlertUpdate;
     public UnityAction OnAttackUpdate;
 
-    protected virtual void Start()
-    {
-
-    }
-
-    protected virtual void Update()
+    protected void Update_StateMachine()
     {
         // 正常状态
         if(StateNow == CharaState.Normal)
@@ -146,6 +152,63 @@ public class CharaBase : MonoBehaviour
                 OnAttackUpdate?.Invoke();
                 break;
         }
+    }
+    #endregion
+
+    #region 对外接口
+    public Vector3 MoveTarget;
+    public List<Vector3> MovePath;
+    public UnityAction<Vector3> OnArriveTarget;
+
+    private int moveIndex = 0;
+
+    public void MoveTo(List<Vector3> _path)
+    {
+        if (_path == null || _path.Count == 0) return;
+
+
+        moveIndex = 0;
+        MovePath = _path;
+        MoveTarget = _path[0];
+    }
+    public void MoveTo(Vector3 _target)
+    {
+        Vector3Int startCell = SceneMod.Instance.Map_Barrier.WorldToCell(transform.position);
+        Vector3Int targetCell = SceneMod.Instance.Map_Barrier.WorldToCell(_target);
+
+
+        if (SceneMod.Instance.IsConnected(startCell, targetCell, out List<Vector3Int> path))
+        {
+            var worldPosList = SceneMod.Instance.Cell2WorldList(path);
+            MoveTo(worldPosList);
+        }
+    }
+
+    private void Update_Move()
+    {
+        // 到达目标点
+        if (Vector3.Distance(transform.position, MoveTarget) <= 0.01f)
+        {
+            OnArriveTarget?.Invoke(MoveTarget);
+            // 切换到下一个点
+            if(MovePath != null && MovePath.Count>0 && moveIndex < MovePath.Count - 1)
+            {
+                moveIndex++;
+                MoveTarget = MovePath[moveIndex];
+            }
+        }
+
+        // 前往目标点
+        if (MoveTarget != null)
+        {
+            MoveTarget.z = transform.position.z;
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                MoveTarget,
+                MoveSpeed * Time.deltaTime
+            );
+        }
+
     }
     #endregion
 }

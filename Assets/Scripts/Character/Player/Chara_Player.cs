@@ -22,6 +22,13 @@ public class Chara_Player : CharaBase
 
         Speed.x = axis_Horizonta * MoveSpeed;
         Speed.y = axis_Vertical * MoveSpeed;
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            var mousePos = Input.mousePosition;
+            var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
+            MoveTo(worldPos);
+        }
     }
 
     public void FixedUpdate()
