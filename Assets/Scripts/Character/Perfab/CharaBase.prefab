@@ -540,7 +540,7 @@ SpriteRenderer:
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 2}
@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b540f3a3ab047fb46abae62986700cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Transform_LookAt: {fileID: 0}
 --- !u!95 &4162029716996884612
 Animator:
   serializedVersion: 5
@@ -631,6 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaec5b2b69a385945ba1f983fae1bf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clamp: 0
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0

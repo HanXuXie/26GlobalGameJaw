@@ -42,7 +42,7 @@ public enum CharaClamp
 public class CharaBase : MonoBehaviour
 {
 
-    [LabelText("角色阵营")]
+    [ReadOnly, LabelText("角色阵营")]
     public CharaClamp Clamp;
     
     [SerializeField, LabelText("血量")]
@@ -84,12 +84,14 @@ public class CharaBase : MonoBehaviour
     public List<Vector3> MovePath;
     public UnityAction<Vector3> OnArriveTarget;
 
+    protected Rigidbody2D rb;
+    protected AnimControl_Chara animControl;
+
     #region Callbacks
     // 血量改变时 [原始值，目标值]
     public UnityAction<float, float> OnHealthChange;
     #endregion
 
-    protected Rigidbody2D rb;
 
     private void Awake()
     {
@@ -205,6 +207,10 @@ public class CharaBase : MonoBehaviour
         if (MoveTarget != null && MoveTarget != Vector3.zero)
         {
             MoveTarget.z = transform.position.z;
+
+            // 根据移动方向左右翻转物体
+            animControl.Flip(MoveTarget.x < transform.position.x);
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 MoveTarget,

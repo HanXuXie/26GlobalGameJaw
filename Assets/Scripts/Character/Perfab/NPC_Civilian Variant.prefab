@@ -89,6 +89,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Civilian Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7039207147014747843, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9e35d11798e0697449998e8acadeafe9, type: 2}
     - target: {fileID: 7743962356199653953, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -122,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae711429e27e2b4591454dd792ced34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clamp: 0
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0

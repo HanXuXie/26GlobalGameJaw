@@ -69,6 +69,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Guard Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7039207147014747843, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4f7ba8bbabb890e47a9f037470542e69, type: 2}
     m_RemovedComponents:
     - {fileID: 1215342784064703831, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
     m_RemovedGameObjects: []
@@ -97,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229657489241292429e02c0b7e277f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clamp: 0
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0

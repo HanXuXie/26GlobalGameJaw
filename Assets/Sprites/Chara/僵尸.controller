@@ -186,7 +186,8 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 14c90e7b86b784140be1114822e67cf1, type: 2}
+  m_Motion: {fileID: -6561625764910379096, guid: 679b4ba9eba374e429d29bda6785f612,
+    type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -248,7 +249,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chara
+  m_Name: "\u50F5\u5C38"
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: onHenshin
@@ -298,7 +299,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -1929565714532987824, guid: 1318a99e720febc41bb1e98dc326ecd1,
+  m_Motion: {fileID: -5576199404405351226, guid: 1ac2a91154eb3e642b4fcc7ac616b733,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
