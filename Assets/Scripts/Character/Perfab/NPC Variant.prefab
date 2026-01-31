@@ -210,21 +210,25 @@ MonoBehaviour:
   MoveStateNow: 0
   MoveSpeed: 0
   PathingPointList: []
+  MoveTarget: {x: 0, y: 0, z: 0}
+  MovePath: []
   StateNow: 0
   Vision: {fileID: 639341235910940391}
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
   <alertRadius>k__BackingField: 0
-  <visionRadius>k__BackingField: 0
-  <maxInfectionValue>k__BackingField: 0
+  <visionRadius>k__BackingField: 1
+  <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
   <InfectionResistance>k__BackingField: 0
   isInfection: 0
-  <maxAlertValue>k__BackingField: 0
-  <alertChangeSpeed>k__BackingField: 0
+  <maxAlertValue>k__BackingField: 100
+  <alertChangeSpeed>k__BackingField: 1
   m_currentAlertValue: 0
   <isAlert>k__BackingField: 0
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
+  MoveRadius: 0
+  MoveCooldown: 0

@@ -54,11 +54,6 @@ public class NPC : CharaBase
 
 
 
-
-
-
-
-
     public UnityAction<float, float> OnInfectionChange;
     public UnityAction<float, float> OnAlertChange;
 
@@ -67,7 +62,6 @@ public class NPC : CharaBase
 
     [field: SerializeField] public float maxInfectionValue { get; private set; } // 感染值相关
 
-    [ShowInInspector]
     public float CurrentInfectionValue
     {
         get
@@ -93,7 +87,6 @@ public class NPC : CharaBase
 
     [field: SerializeField] public float alertChangeSpeed { get; protected set; }
 
-    [ShowInInspector]
     public float CurrentAlertValue
     {
         get
@@ -110,20 +103,39 @@ public class NPC : CharaBase
 
     [field: SerializeField] public bool isAlert { get; private set; }
 
+    public float AlertTime;
+
+    public float MaxAlertTime = 5;
+
+
 
 
     [field: SerializeField] public bool isAttack { get; private set; }
+
     [field: SerializeField] public CharaBase attackTarget = null;
 
 
 
     [field: SerializeField] public bool hasWeapon { get; private set; }
 
+
+    public float MoveRadius;
+    public float MoveCooldown;
+
     #region 警惕值和感染值检测和改变相关
 
     public virtual void ChangeAlert()
     {
 
+        if (CurrentAlertValue > maxAlertValue)
+        {
+            CurrentAlertValue = maxAlertValue;
+        }
+
+        if (CurrentAlertValue < 0)
+        {
+            CurrentAlertValue = 0;
+        }
     }
 
     public virtual void ChangeInfection(float infectionSpeed)
@@ -135,14 +147,17 @@ public class NPC : CharaBase
 
     private void AlertDetection()
     {
-        if (CurrentAlertValue >= maxAlertValue)
+
+        if (CurrentAlertValue >= maxAlertValue && !isAlert)
         {
             isAlert = true;
+            AlertTime = MaxAlertTime;
         }
-        else
+        else if(CurrentAlertValue < maxAlertValue || AlertTime <= 0)
         {
             isAlert = false;
         }
+
     }
 
     private void InfectionDetection()
@@ -173,7 +188,7 @@ public class NPC : CharaBase
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
-            collider.name = "Vision";
+            if(collider.name == "Vision")
             Vision = collider;
         }
     }
@@ -241,16 +256,27 @@ public class NPC : CharaBase
         };
     }
 
+    void OnDrawGizmos()
+    {
+        //Gizmos.DrawSphere(transform.position, alertRadius);
+        // 3. 设置描边颜色（通常比填充色深一点）
+        Gizmos.color = Color.white;
+
+        // 4. 绘制线框圆（描边）
+        // 这里使用DrawWireSphere绘制球体的线框，对于2D来说就是圆
+        Gizmos.DrawWireSphere(transform.position, alertRadius);
+    }
+
+
     protected override void Update()
     {
         base.Update();
+        AlertTime -= Time.deltaTime;
+
         Vision.transform.localScale = new Vector3(visionRadius, visionRadius, visionRadius);
         ChangeAlert();
         AlertDetection();
         InfectionDetection();
-
-
-
     }
 
 
