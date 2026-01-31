@@ -188,6 +188,7 @@ public class NPC : CharaBase
     {
         if (attackTarget != null)
         {
+            Debug.Log(isAttack);
             isAttack = true;
         }
     }
@@ -283,7 +284,7 @@ public class NPC : CharaBase
 
         // 4. 绘制线框圆（描边）
         // 这里使用DrawWireSphere绘制球体的线框，对于2D来说就是圆
-        Gizmos.DrawWireSphere(transform.position, alertRadius);
+        Gizmos.DrawWireSphere(transform.Find("Anchor").position, alertRadius);
     }
 
 

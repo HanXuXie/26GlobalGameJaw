@@ -13,11 +13,16 @@ public class Weapon_Baton : WeaponBase
 
         this.transform.LookAt(target.transform);
 
+
+
         List<CharaBase> charaBases = GetTargetsInCone();
+
+        Debug.Log(charaBases.Count);
 
         foreach (CharaBase charaBase in charaBases)
         {
             charaBase.TakeDamage(weaponDamage);
+            Debug.Log(charaBase.ToString());
         }
 
         return true;
@@ -26,8 +31,19 @@ public class Weapon_Baton : WeaponBase
 
     }
 
+    private void Start()
+    {
+        radius = weaponRange;
+    }
+
+
+
+
+
+
+
     [Header("扇形参数")]
-    public float radius = 5f;          // 扇形半径
+    public float radius;          // 扇形半径
     public float angle = 120f;          // 扇形角度（度数）
     //public LayerMask targetLayer;      // 想要检测的层（例如：只检测敌人层）
 
