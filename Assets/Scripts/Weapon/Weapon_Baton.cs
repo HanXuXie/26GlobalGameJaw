@@ -22,6 +22,7 @@ public class Weapon_Baton : WeaponBase
         foreach (CharaBase charaBase in charaBases)
         {
             charaBase.TakeDamage(weaponDamage);
+            Debug.Log("击中目标");
             Debug.Log(charaBase.ToString());
         }
 

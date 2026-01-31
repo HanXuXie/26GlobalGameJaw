@@ -123,11 +123,10 @@ MonoBehaviour:
   MovePath: []
   StateNow: 0
   Vision: {fileID: 0}
+  <visionRadius>k__BackingField: 1
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
-  <alertRadius>k__BackingField: 0
-  <visionRadius>k__BackingField: 1
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
   <InfectionResistance>k__BackingField: 0
@@ -135,11 +134,13 @@ MonoBehaviour:
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 0
   m_currentAlertValue: 0
+  <alertRadius>k__BackingField: 0
   <isAlert>k__BackingField: 0
   AlertTime: 0
   MaxAlertTime: 5
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
+  Weapon: {fileID: 0}
   MoveRadius: 0
   MoveCooldown: 0

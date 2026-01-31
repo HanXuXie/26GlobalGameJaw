@@ -148,7 +148,7 @@ public class CharaBase : MonoBehaviour
         if (StateNow == CharaState.Alert)
         {
             // 尝试进入正常
-            if (CanEnterAlert != null && CanEnterAlert.Invoke())
+            if (CanEnterNormal != null && CanEnterNormal.Invoke())
             {
                 StateNow = CharaState.Normal;
             }
@@ -161,12 +161,19 @@ public class CharaBase : MonoBehaviour
         // 攻击状态
         if (StateNow == CharaState.Attack)
         {
-            // 尝试进入正常
+            // 尝试进入警惕
             if (CanEnterAlert != null && CanEnterAlert.Invoke())
+            {
+                StateNow = CharaState.Alert;
+            }
+            // 尝试进入正常
+            if (CanEnterNormal != null && CanEnterNormal.Invoke())
             {
                 StateNow = CharaState.Normal;
             }
         }
+
+        Debug.Log(StateNow.ToString());
 
         switch (StateNow)
         {
@@ -179,6 +186,7 @@ public class CharaBase : MonoBehaviour
                 break;
 
             case CharaState.Attack:
+                Debug.Log("调用攻击状态");
                 OnAttackUpdate?.Invoke();
                 break;
         }

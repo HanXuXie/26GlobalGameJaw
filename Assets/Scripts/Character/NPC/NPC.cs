@@ -198,8 +198,9 @@ public class NPC : CharaBase
     {
         base.Awake();
 
-        if(hasWeapon)
         Weapon = GetComponentInParent<WeaponBase>();
+
+        if (Weapon != null) hasWeapon = true;
 
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
@@ -215,15 +216,22 @@ public class NPC : CharaBase
         CanEnterNormal += () =>
         {
             if (!isAlert && !isAttack)
+            {
+                Debug.Log("进入正常状态");
                 return true;
+            }
             else
                 return false;
         };
 
         CanEnterAlert += () =>
         {
-            if (isAlert)
+            Debug.Log("尝试进入警戒状态");
+            if (isAlert && !isAttack)
+            {
+                Debug.Log("进入警戒状态");
                 return true;
+            }
             else
                 return false;
         };
@@ -239,6 +247,7 @@ public class NPC : CharaBase
 
         OnNormalUpdate += () =>
         {
+            Debug.Log("正常状态");
             switch (MoveStateNow)
             {
                 case MoveState.Static:
@@ -261,11 +270,12 @@ public class NPC : CharaBase
 
         OnAlertUpdate += () =>
         {
-
+            Debug.Log("警戒状态");
         };
 
         OnAttackUpdate += () =>
         {
+            Debug.Log("攻击状态");
             if (attackTarget != null)
             {
                 Weapon.AttackMode(attackTarget);
