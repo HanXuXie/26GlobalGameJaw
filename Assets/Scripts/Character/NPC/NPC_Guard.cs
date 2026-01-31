@@ -8,23 +8,35 @@ public class NPC_Guard : NPC
     public override void ChangeAlert()
     {
         base.ChangeAlert();
-        Collider[] Colliders = Physics.OverlapSphere(transform.position, alertRadius);
-        foreach(Collider collider in Colliders)
+        if (isAlert) return;
+        Collider2D[] Colliders = Physics2D.OverlapCircleAll(transform.position, alertRadius);
+        foreach (Collider2D collider in Colliders)
         {
-            if (collider.GetComponent <NPC_Civilian>())
+            if (collider.GetComponent<NPC_Infected>())
             {
 
+                Debug.Log("检测到感染者");
+                CurrentAlertValue += 100;
             }
             //获取行为
+            if(collider.GetComponent<Chara_Player>())
+            {
+                Debug.Log("检测到玩家");
+                CurrentAlertValue += alertChangeSpeed * Time.deltaTime;
+            }
 
         }
 
     }
 
-    public override void ChangeInfection()
+    public override void ChangeInfection(float infectionSpeed)
     {
-        base.ChangeInfection();
+        base.ChangeInfection(infectionSpeed);
+
+        CurrentInfectionValue += infectionSpeed * Time.deltaTime;
     }
+
+    
 
     protected override void Update()
     {

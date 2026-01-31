@@ -72,6 +72,11 @@ public class CharaBase : MonoBehaviour
     public UnityAction OnAlertUpdate;
     public UnityAction OnAttackUpdate;
 
+    protected virtual void Start()
+    {
+
+    }
+
     protected virtual void Update()
     {
         // 正常状态

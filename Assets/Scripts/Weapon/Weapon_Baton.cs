@@ -8,7 +8,7 @@ public class Weapon_Baton : WeaponBase
     {
         if (!isAttack) return false;
 
-        CharaBase target = TargetAcquisition.NearestEnemy(this, targets);
+        CharaBase target = TargetAcquisition.WeaponRangeNearestEnemy(this, targets);
 
         if(target == null) return false;
 
