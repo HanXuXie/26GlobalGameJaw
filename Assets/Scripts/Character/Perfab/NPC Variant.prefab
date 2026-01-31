@@ -232,6 +232,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 639341235910940391}
+    - targetCorrespondingSourceObject: {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6669187625358145982}
   m_SourcePrefab: {fileID: 100100000, guid: 6a180327b36923b4b8ec1215d8466e35, type: 3}
 --- !u!1 &1160960379960095566 stripped
 GameObject:
@@ -294,6 +298,18 @@ PolygonCollider2D:
       - {x: 5.154266, y: 1.2415305}
       - {x: 4.8153467, y: 1.5346798}
   m_UseDelaunayMesh: 0
+--- !u!114 &6669187625358145982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160960379960095566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00432205f3b180f45800310049a607a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7021825482523835406 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4107493354505372233, guid: 6a180327b36923b4b8ec1215d8466e35,
@@ -312,6 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c75ba04d6957140927a9321c0a45e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Clamp: 0
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0

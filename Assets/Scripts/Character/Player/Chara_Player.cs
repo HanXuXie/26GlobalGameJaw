@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MulInputSystem;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 public enum PlayerState
 {
@@ -17,6 +18,8 @@ public class Chara_Player : CharaBase
 {
     public Vector3 Speed;
     public PlayerState PlayerState;
+
+    public SpriteRenderer Sprite_AttackRange;
 
     protected override void Update()
     {
@@ -33,6 +36,11 @@ public class Chara_Player : CharaBase
         Speed.x = axis_Horizonta * MoveSpeed;
         Speed.y = axis_Vertical * MoveSpeed;
 
+        if(Mathf.Abs(Speed.x) > 0.05f)
+        {
+            animControl.Flip(Speed.x < 0);
+        }
+
         // 右键移动
         if (Input.GetMouseButtonDown(1))
         {
@@ -42,9 +50,13 @@ public class Chara_Player : CharaBase
         }
 
         // 左键普攻
-        if(Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButtonDown(0))
         {
             DoAttack();
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            EndAttack();
         }
 
         // 空格爆发
@@ -60,10 +72,42 @@ public class Chara_Player : CharaBase
         rb.velocity = Speed;
     }
 
-    // 普A
+    // 开始普A
     public void DoAttack()
     {
+        Sprite_AttackRange.DOComplete();
+        PlayerState = PlayerState.Henshin;
+        animControl.onHenshin(true);
 
+        Sprite_AttackRange.color = new Color(1,1,1,0);
+        Sprite_AttackRange.gameObject.SetActive(true);
+        Sprite_AttackRange.DOFade(1, 1)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() =>
+            {
+                Sprite_AttackRange.color = new Color(1, 1, 1, 1);
+            })
+            .SetLink(Sprite_AttackRange.gameObject);
+    }
+
+
+    // 停止普A
+    public void EndAttack()
+    {
+        Sprite_AttackRange.DOComplete();
+
+        Sprite_AttackRange.color = new Color(1, 1, 1, 1);
+        Sprite_AttackRange.DOFade(0, 1)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() =>
+            {
+                Sprite_AttackRange.color = new Color(1, 1, 1, 0);
+                Sprite_AttackRange.gameObject.SetActive(false);
+
+                PlayerState = PlayerState.Normal;
+                animControl.onHenshin(false);
+            })
+            .SetLink(Sprite_AttackRange.gameObject);
     }
 
     // 技能

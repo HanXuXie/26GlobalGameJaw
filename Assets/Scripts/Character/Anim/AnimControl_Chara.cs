@@ -21,6 +21,16 @@ public class AnimControl_Chara : MonoBehaviour
         render.flipX = _ifFlip;
     }
 
+    public void onWalk(bool _onWalk)
+    {
+        animator.SetBool("onWalk", _onWalk);
+    }
+
+    public void onHenshin(bool _onHenshin)
+    {
+        animator.SetBool("onHenshin", _onHenshin);
+    }
+
     public void LookAt(Transform _target)
     {
         Transform_LookAt = _target;

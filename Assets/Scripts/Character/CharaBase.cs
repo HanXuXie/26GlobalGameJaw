@@ -186,8 +186,11 @@ public class CharaBase : MonoBehaviour
     private void Update_Move()
     {
         // 到达目标点
-        if (Vector3.Distance(transform.position, MoveTarget) <= 0.01f)
+        if (Vector3.Distance(transform.position, MoveTarget) <= 0.5f)
         {
+            // 停止移动
+            animControl.onWalk(false);
+
             OnArriveTarget?.Invoke(MoveTarget);
             ArriveTime = Time.time;
             // 切换到下一个点
@@ -208,10 +211,16 @@ public class CharaBase : MonoBehaviour
         // 前往目标点
         if (MoveTarget != null && MoveTarget != Vector3.zero)
         {
+
             MoveTarget.z = transform.position.z;
 
-            // 根据移动方向左右翻转物体
-            animControl.Flip(MoveTarget.x < transform.position.x);
+            if (Vector3.Distance(transform.position, MoveTarget) >= 0.5f)
+            {
+                // 开始移动
+                animControl.onWalk(true);
+                // 根据移动方向左右翻转物体
+                animControl.Flip(MoveTarget.x < transform.position.x);
+            }
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
