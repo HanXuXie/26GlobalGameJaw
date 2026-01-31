@@ -490,6 +490,8 @@ MonoBehaviour:
   MovePath: []
   StateNow: 0
   Vision: {fileID: 639341235910940391}
+  CurrentVisionTime: 0
+  MaxVisionTime: 1
   <visionRadius>k__BackingField: 1
   detectionMask:
     serializedVersion: 2
