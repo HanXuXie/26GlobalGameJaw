@@ -172,12 +172,12 @@ PrefabInstance:
     - target: {fileID: 1627019264703490534, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.61
+      value: 11.19
       objectReference: {fileID: 0}
     - target: {fileID: 1627019264703490534, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.39
+      value: -2.33
       objectReference: {fileID: 0}
     - target: {fileID: 1627019264703490534, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -372,6 +372,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2583938630648307209}
+    - targetCorrespondingSourceObject: {fileID: 3690037611468741563, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8862981304968489532}
     - targetCorrespondingSourceObject: {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       insertIndex: -1
@@ -534,3 +538,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor: {fileID: 0}
   spriteRenderers: []
+--- !u!70 &8862981304968489532
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730309786018817532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.047545433, y: 0.9901506}
+  m_Size: {x: 1.5299091, y: 2.0295484}
+  m_Direction: 0

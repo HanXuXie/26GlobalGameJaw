@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1316290055371300717}
   - component: {fileID: 1050836904759728463}
-  - component: {fileID: 6363780334122298991}
+  - component: {fileID: 7509733341908112607}
+  - component: {fileID: 5696654322013874267}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022364993697897262}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6363780334122298991
+--- !u!95 &7509733341908112607
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -107,3 +108,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5696654322013874267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022364993697897262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfae4741e35c234cb192e9c7a852d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Chara: {fileID: 0}
+  weaponDamage: 34
+  weaponAttackInterval: 4
+  weaponRange: 10
+  weaponCooldown: 0
+  isAttack: 1
+  BulletPrefab: {fileID: 3814537885386337464, guid: 1ae83e78c4b8e8b4d9e24ef7de73d009,
+    type: 3}
+  Animator: {fileID: 0}

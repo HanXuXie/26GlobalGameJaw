@@ -15,14 +15,14 @@ public class Weapon_pistol : WeaponBase
         if (target == null) return false;
         Debug.Log("攻击");
 
-        Vector3 aimTran = target.transform.position + new Vector3(0,2f,0);
+        Vector3 aimTran = target.transform.position + new Vector3(0, 2f, 0);
 
         this.transform.LookAt(aimTran, Vector3.up);
         transform.Rotate(0, -90, 0);
 
         Animator.SetBool("Shot", true);
 
-        GameObject bullet = Instantiate(BulletPrefab,transform.position,transform.rotation);
+        GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
 
 
         bullet.transform.Rotate(0, 0, Random.Range(-7, 7));

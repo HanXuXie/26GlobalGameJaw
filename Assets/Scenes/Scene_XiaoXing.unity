@@ -2757,6 +2757,7 @@ MonoBehaviour:
   isAttack: 1
   BulletPrefab: {fileID: 3814537885386337464, guid: 1ae83e78c4b8e8b4d9e24ef7de73d009,
     type: 3}
+  Animator: {fileID: 0}
 --- !u!1 &1078553474
 GameObject:
   m_ObjectHideFlags: 0
@@ -3428,6 +3429,74 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1805225026
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022364993697897262, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: m_Name
+      value: Pistol
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3c18f358f38fafa4f8913ccb1134366c, type: 3}
 --- !u!1 &1810723150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,8 +3711,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358bf2712e0051d4d97be027e6b513af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tile2Sprites: []
+  SpriteTilePrefab: {fileID: 0}
   Map_Barrier: {fileID: 678261401}
   Map_Build: {fileID: 1599615262}
+  Map_Ground: {fileID: 0}
+  Map_Wall1: {fileID: 0}
+  Map_Wall2: {fileID: 0}
   Tile_Barrier:
   - {fileID: 11400000, guid: 44f8f911c3b372149a3158868e47c19a, type: 2}
   Tile_Build:
@@ -4179,3 +4253,4 @@ SceneRoots:
   - {fileID: 582223394}
   - {fileID: 2894772950637757269}
   - {fileID: 38100741597348058}
+  - {fileID: 1805225026}
