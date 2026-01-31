@@ -24,9 +24,25 @@ public class Chara_Player : CharaBase
 
     public void FixedUpdate()
     {
-        
         // 更新速度
         rb.velocity = Speed;
     }
 
+    // 普A
+    public void Attack()
+    {
+
+    }
+
+    // 技能
+    public void Skill()
+    {
+
+
+    }
+    // 引爆
+    public void Boom()
+    {
+
+    }
 }
