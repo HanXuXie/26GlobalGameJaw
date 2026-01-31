@@ -175,7 +175,7 @@ public class CharaBase : MonoBehaviour
         }
 
         // 前往目标点
-        if (MoveTarget != null)
+        if (MoveTarget != null && MoveTarget != Vector3.zero)
         {
             MoveTarget.z = transform.position.z;
             transform.position = Vector3.MoveTowards(
