@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -34,7 +35,6 @@ public class CharaBase : MonoBehaviour
     // 血量改变时 [原始值，目标值]
     public UnityAction<float, float> OnHealthChange;
 
-    [ShowInInspector, LabelText("血量")]
     public float Health
     {
         get
@@ -47,6 +47,8 @@ public class CharaBase : MonoBehaviour
             m_Health = value;
         }
     }
+
+    [SerializeField, LabelText("血量")]
     private float m_Health;
 
     [ShowInInspector, LabelText("移动速度")]

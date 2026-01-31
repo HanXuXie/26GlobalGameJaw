@@ -14561,10 +14561,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2061954963062027376, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2578699776113515014, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4107493354505372233, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_Name
       value: CharaBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905758742038298571, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_Health
+      value: 1.92
       objectReference: {fileID: 0}
     - target: {fileID: 7006002496321813689, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -14608,6 +14623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834299175931274582, guid: 7868190001b51414abef895a00b305a8,
+        type: 3}
+      propertyPath: m_Health
+      value: 4.59
       objectReference: {fileID: 0}
     - target: {fileID: 3834299175931274582, guid: 7868190001b51414abef895a00b305a8,
         type: 3}
