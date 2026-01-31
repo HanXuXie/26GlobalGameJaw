@@ -25,7 +25,7 @@ public class NPC_Guard : NPC
                 hasAlert = true;
             }
             //获取行为
-            if(collider.GetComponentInParent<Chara_Player>())
+            if (collider.GetComponentInParent<Chara_Player>())
             {
                 Debug.Log("检测到玩家");
                 CurrentAlertValue += alertChangeSpeed * Time.deltaTime;
@@ -45,10 +45,11 @@ public class NPC_Guard : NPC
     {
         base.ChangeInfection(infectionSpeed);
 
-        CurrentInfectionValue += infectionSpeed * Time.deltaTime /(InfectionResistance + infectionSpeed * Time.deltaTime);
+        CurrentInfectionValue += infectionSpeed * Time.deltaTime / (InfectionResistance + infectionSpeed * Time.deltaTime);
     }
 
-    
+
+
 
     protected override void Update()
     {

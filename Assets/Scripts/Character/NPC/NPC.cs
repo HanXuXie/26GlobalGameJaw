@@ -34,6 +34,7 @@ public class NPC : CharaBase
         }
 
         attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
+
     }
 
 
@@ -45,11 +46,9 @@ public class NPC : CharaBase
         {
             CharaBases.Remove(target);
         }
+
         attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
     }
-
-
-
 
 
 
@@ -153,7 +152,7 @@ public class NPC : CharaBase
             isAlert = true;
             AlertTime = MaxAlertTime;
         }
-        else if(CurrentAlertValue < maxAlertValue || AlertTime <= 0)
+        else if (CurrentAlertValue < maxAlertValue || AlertTime <= 0)
         {
             isAlert = false;
         }
@@ -176,7 +175,7 @@ public class NPC : CharaBase
 
     protected virtual void AttackDetection()
     {
-        if(attackTarget != null)
+        if (attackTarget != null)
         {
             isAttack = true;
         }
@@ -188,8 +187,8 @@ public class NPC : CharaBase
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
-            if(collider.name == "Vision")
-            Vision = collider;
+            if (collider.name == "Vision")
+                Vision = collider;
         }
     }
 
@@ -229,10 +228,10 @@ public class NPC : CharaBase
                     break;
 
                 case MoveState.Pathing:
-                    if(PathingPointList != null && PathingPointList.Count > 0 && (MovePath == null || MovePath.Count == 0))
+                    if (PathingPointList != null && PathingPointList.Count > 0 && (MovePath == null || MovePath.Count == 0))
                     {
                         List<Vector3> WordPath = new List<Vector3>();
-                        PathingPointList.ForEach(point=>WordPath.Add(point.position));
+                        PathingPointList.ForEach(point => WordPath.Add(point.position));
                         MoveTo(WordPath);
                     }
                     break;
