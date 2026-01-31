@@ -19,6 +19,6 @@ public class CharaSpriteAttach : MonoBehaviour
     void Update()
     {
         foreach (SpriteRenderer spriteRenderer in spriteRenderers)
-            spriteRenderer.sortingOrder = (int)(200f + anchor.position.y);
+            spriteRenderer.sortingOrder = (int)(300f - anchor.position.y);
     }
 }

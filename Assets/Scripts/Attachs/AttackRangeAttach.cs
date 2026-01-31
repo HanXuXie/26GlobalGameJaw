@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class AttackRangeAttach : MonoBehaviour
 {
-    private void OnTriggerStay(Collider other)
+    public float damage = 1;
+    private void OnTriggerStay2D(Collider2D collision)
     {
         NPC npc = null;
-        if ((npc = other.GetComponent<NPC>() )!= null)
+        if ((npc = collision.GetComponentInParent<NPC>()) != null)
         {
-            npc.ChangeInfection(1);
+            npc.ChangeInfection(damage);
         }
     }
 }

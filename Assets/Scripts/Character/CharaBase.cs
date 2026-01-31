@@ -45,6 +45,7 @@ public class CharaBase : MonoBehaviour
     [LabelText("角色阵营")]
     public CharaClamp Clamp;
 
+
     [SerializeField, LabelText("血量")]
     private float m_Health;
     public float Health
@@ -59,7 +60,7 @@ public class CharaBase : MonoBehaviour
             m_Health = value;
         }
     }
-
+    private float MaxHealth;
 
     [Space(10)]
     [Header("角色移动状态")]
@@ -88,6 +89,7 @@ public class CharaBase : MonoBehaviour
     protected Transform anchor;
     protected AnimControl_Chara animControl;
     protected VisionAttach visionAttach;
+    protected StateBarMod stateBar;
 
     #region Callbacks
     // 血量改变时 [原始值，目标值]
@@ -101,6 +103,14 @@ public class CharaBase : MonoBehaviour
         anchor = transform.Find("Anchor");
         animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
         visionAttach = transform.Find("Vision")?.GetComponent<VisionAttach>();
+        stateBar = transform.Find("StateBar").GetComponent<StateBarMod>();
+
+        MaxHealth = Health;
+
+        OnHealthChange += (old, now) =>
+        {
+            stateBar.OnHealthChange(old, now, MaxHealth);
+        };
     }
 
     protected virtual void Start()
