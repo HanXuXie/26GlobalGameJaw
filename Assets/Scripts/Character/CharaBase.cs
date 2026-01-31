@@ -42,7 +42,7 @@ public enum CharaClamp
 public class CharaBase : MonoBehaviour
 {
 
-    [ReadOnly, LabelText("角色阵营")]
+    [LabelText("角色阵营")]
     public CharaClamp Clamp;
     
     [SerializeField, LabelText("血量")]
@@ -96,6 +96,7 @@ public class CharaBase : MonoBehaviour
     private void Awake()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
     }
      
     protected virtual void Start()
