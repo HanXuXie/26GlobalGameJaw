@@ -182,8 +182,10 @@ public class NPC : CharaBase
     }
     #endregion
 
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
