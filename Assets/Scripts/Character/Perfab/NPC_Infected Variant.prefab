@@ -18,6 +18,12 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
       value: 0.06198954
       objectReference: {fileID: 0}
+    - target: {fileID: 4127659308564251390, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1893106531297903329, guid: 52592981a0398a54188475142a7dde84,
+        type: 3}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -104,6 +110,8 @@ MonoBehaviour:
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0
+  ArriveWaitTime: 0
+  ifLoop: 0
   PathingPointList: []
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3459138b3e2e7f4aa53030f14e73f17
+guid: 269bd86eb68af2b45b896fcedfa7f507
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: jingcha2
+  - name: ui
     originalName: 
-    pivot: {x: 0.48148152, y: 0}
+    pivot: {x: 0.5, y: -0.0150375925}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 27
-      height: 38
-    spriteID: 0d21a73570559064eb1e9033e395d1f1
+      width: 480
+      height: 266
+    spriteID: 209075ff6e185214d90344b61df9f8e6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,21 +144,21 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 2096282328
-    name: jingcha2
+    guid: -500069156
+    name: ui
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: jingcha2
+    - name: ui
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 2
-        y: 0
-        width: 27
-        height: 38
-      spriteId: 0d21a73570559064eb1e9033e395d1f1
+        x: 0
+        y: 4
+        width: 480
+        height: 266
+      spriteId: 209075ff6e185214d90344b61df9f8e6
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -177,4 +177,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 30, y: 40}
+  canvasSize: {x: 480, y: 270}

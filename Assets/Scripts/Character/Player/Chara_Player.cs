@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MulInputSystem;
+using Sirenix.OdinInspector;
+
+public enum PlayerState
+{
+    [LabelText("普通状态")]
+    Normal,
+
+    [LabelText("疫医状态")]
+    Henshin,
+}
 
 public class Chara_Player : CharaBase
 {
     public Vector3 Speed;
-
+    public PlayerState PlayerState;
 
     protected override void Update()
     {
@@ -23,11 +33,24 @@ public class Chara_Player : CharaBase
         Speed.x = axis_Horizonta * MoveSpeed;
         Speed.y = axis_Vertical * MoveSpeed;
 
+        // 右键移动
         if (Input.GetMouseButtonDown(1))
         {
             var mousePos = Input.mousePosition;
             var worldPos = Camera.main.ScreenToWorldPoint(mousePos);
             MoveTo(worldPos);
+        }
+
+        // 左键普攻
+        if(Input.GetMouseButtonUp(0))
+        {
+            DoAttack();
+        }
+
+        // 空格爆发
+        if (MulInputSystem.MulInputSystem.GetInput_Button(PlayerTag.Player1, InputType.Tap_Space))
+        {
+            DoBoom();
         }
     }
 
@@ -38,19 +61,20 @@ public class Chara_Player : CharaBase
     }
 
     // 普A
-    public void Attack()
+    public void DoAttack()
     {
 
     }
 
     // 技能
-    public void Skill()
+    public void DoSkill()
     {
 
 
     }
+
     // 引爆
-    public void Boom()
+    public void DoBoom()
     {
 
     }

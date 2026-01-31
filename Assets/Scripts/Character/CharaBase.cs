@@ -30,8 +30,20 @@ public enum CharaState
     Attack,
 }
 
+public enum CharaClamp
+{
+    [LabelText("人类")]
+    Hunman,
+
+    [LabelText("感染者")]
+    Infected,
+}
+
 public class CharaBase : MonoBehaviour
 {
+
+    [LabelText("角色阵营")]
+    public CharaClamp Clamp;
     
     [SerializeField, LabelText("血量")]
     private float m_Health;
@@ -57,8 +69,14 @@ public class CharaBase : MonoBehaviour
 
     [LabelText("移动速度")]
     public float MoveSpeed;
+
+    [LabelText("到达目标点后等待时间")]
+    public float ArriveWaitTime;
+
     private bool ifInPathing => MoveStateNow == MoveState.Pathing;
 
+    [ShowIf("ifInPathing"), LabelText("循环路径")]
+    public bool ifLoop;
     [ShowIf("ifInPathing"), LabelText("路径点列表")]
     public List<Transform> PathingPointList;
 
@@ -160,19 +178,28 @@ public class CharaBase : MonoBehaviour
     #endregion
 
     #region 更新逻辑
+    private float ArriveTime;
     private void Update_Move()
     {
         // 到达目标点
         if (Vector3.Distance(transform.position, MoveTarget) <= 0.01f)
         {
             OnArriveTarget?.Invoke(MoveTarget);
+            ArriveTime = Time.time;
             // 切换到下一个点
             if (MovePath != null && MovePath.Count > 0 && moveIndex < MovePath.Count - 1)
             {
                 moveIndex++;
                 MoveTarget = MovePath[moveIndex];
+                ArriveTime = Time.time;
+
+                // 循环路径处理
+                if (ifLoop && moveIndex == MovePath.Count - 1)
+                    moveIndex = -1;
             }
         }
+
+        if(Time.time < ArriveTime + ArriveWaitTime) return;
 
         // 前往目标点
         if (MoveTarget != null && MoveTarget != Vector3.zero)

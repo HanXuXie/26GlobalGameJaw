@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 540716730318742194, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.12
+      objectReference: {fileID: 0}
     - target: {fileID: 639341235910940391, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
@@ -17,6 +22,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
       value: 0.06198954
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127659308564251390, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2310031081642382048, guid: e64ce25723641d240b1183155b0af425,
+        type: 3}
+    - target: {fileID: 4414284608132273693, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0009999
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -73,6 +89,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_Civilian Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7743962356199653953, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.05
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1215342784064703831, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
     m_RemovedGameObjects: []
@@ -104,6 +125,8 @@ MonoBehaviour:
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0
+  ArriveWaitTime: 0
+  ifLoop: 0
   PathingPointList: []
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []

@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4127659308564251390, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2110265433705303404, guid: d3459138b3e2e7f4aa53030f14e73f17,
+        type: 3}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,6 +100,8 @@ MonoBehaviour:
   m_Health: 0
   MoveStateNow: 0
   MoveSpeed: 0
+  ArriveWaitTime: 0
+  ifLoop: 0
   PathingPointList: []
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []
@@ -112,6 +120,8 @@ MonoBehaviour:
   <alertChangeSpeed>k__BackingField: 0
   m_currentAlertValue: 0
   <isAlert>k__BackingField: 0
+  AlertTime: 0
+  MaxAlertTime: 5
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
