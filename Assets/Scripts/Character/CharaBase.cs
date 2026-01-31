@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,18 @@ public enum MoveState
 
     [LabelText("随机")]
     Random
+}
+
+public enum CharaState
+{
+    [LabelText("正常")]
+    Normal,
+
+    [LabelText("警惕")]
+    Alert,
+
+    [LabelText("攻击")]
+    Attack,
 }
 
 public class CharaBase : MonoBehaviour
@@ -45,4 +58,25 @@ public class CharaBase : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody2D>();
     }
+
+    #region 状态机
+    [Space(10)]
+    [Header("角色逻辑状态")]
+    public CharaState StateNow;
+
+    public Func<bool> CanEnterNormal;
+    public Func<bool> CanEnterAlert;
+    public Func<bool> CanEnterAttack;
+
+    public UnityAction OnNormalUpdate;
+    public UnityAction OnAlertUpdate;
+    public UnityAction OnAttackUpdate;
+
+    protected virtual void Update()
+    {
+        
+    }
+
+
+    #endregion
 }

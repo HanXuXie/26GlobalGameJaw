@@ -10,6 +10,7 @@ public class Chara_Player : CharaBase
 
     public void Update()
     {
+        
         Update_Input();
     }
 
