@@ -333,5 +333,10 @@ public class CharaBase : MonoBehaviour
         Health -= damage;
         entityFX.StartWhite();
     }
+
+    public void HasInfected()
+    {
+        transform.Find("HasInfected").gameObject.SetActive(true);
+    }
     #endregion
 }

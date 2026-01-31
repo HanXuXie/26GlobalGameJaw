@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
     private Queue<GameObject> ObjPool_EffectSource;
 
     // 音乐播放器[单个]
-    private AudioSourceAttach MusicSource;
+    private AudioSource MusicSource;
 
     // 音效播放器[预制体]
     private GameObject EffectSourcePerfab;
@@ -78,7 +78,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        MusicSource = transform.Find("MusicSource").GetComponent<AudioSourceAttach>();
+        MusicSource = transform.Find("MusicSource").GetComponent<AudioSource>();
         EffectSourcePerfab = transform.Find("EffectSource").gameObject;
 
         objPool = transform.Find("ObjPool");
@@ -155,7 +155,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public AudioSourceAttach PlayMusic(MusicType _musicType, bool _playImmediately = false)
+    public void PlayMusic(MusicType _musicType, bool _playImmediately = false)
     {
         AudioClip clip = Resources.Load<AudioClip>($"AudioClips/Music/{_musicType}");
 
@@ -169,7 +169,22 @@ public class AudioManager : MonoBehaviour
             }
             OnPlayMusic = _musicType;
         }
-        return MusicSource;
     }
 
+    public void PlayState1Music()
+    {
+        AudioClip clip = Resources.Load<AudioClip>($"AudioClips/Music/{MusicType.State1_begin}");
+        MusicSource.gameObject.SetActive(true);
+        OnPlayMusic = MusicType.State1_begin;
+        MusicSource.clip = clip;
+    }
+
+    IEnumerable SwitchToMiddle(float _clipTime)
+    {
+        yield return new WaitForSeconds(_clipTime);
+        AudioClip clip = Resources.Load<AudioClip>($"AudioClips/Music/{MusicType.State1_middle}");
+        MusicSource.clip = clip;
+        MusicSource.Play();
+        OnPlayMusic = MusicType.State1_middle;
+    }
 }

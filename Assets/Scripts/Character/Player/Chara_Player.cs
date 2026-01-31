@@ -73,9 +73,13 @@ public class Chara_Player : CharaBase
     }
 
     private bool onAttack;
+    private float orginMoveSpeed;
     // 开始普A
     public void DoAttack()
     {
+        orginMoveSpeed = MoveSpeed;
+        MoveSpeed = orginMoveSpeed / 2;
+
         Sprite_AttackRange.DOComplete();
 
         onAttack = true;
@@ -112,6 +116,8 @@ public class Chara_Player : CharaBase
                 PlayerState = PlayerState.Normal;
                 animControl.onHenshin(false);
                 onAttack = false;
+
+                MoveSpeed = orginMoveSpeed;
             })
             .SetLink(Sprite_AttackRange.gameObject);
     }
