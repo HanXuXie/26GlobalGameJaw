@@ -62,6 +62,10 @@ public class CharaBase : MonoBehaviour
     [ShowIf("ifInPathing"), LabelText("路径点列表")]
     public List<Transform> PathingPointList;
 
+    public Vector3 MoveTarget;
+    public List<Vector3> MovePath;
+    public UnityAction<Vector3> OnArriveTarget;
+
     #region Callbacks
     // 血量改变时 [原始值，目标值]
     public UnityAction<float, float> OnHealthChange;
@@ -73,10 +77,10 @@ public class CharaBase : MonoBehaviour
     {
         rb = transform.GetComponent<Rigidbody2D>();
     }
-
+     
     protected virtual void Start()
     {
-
+        OnNormalUpdate += Update_Move;
     }
 
     protected virtual void Update()
@@ -155,10 +159,76 @@ public class CharaBase : MonoBehaviour
     }
     #endregion
 
+    #region 更新逻辑
+    private void Update_Move()
+    {
+        // 到达目标点
+        if (Vector3.Distance(transform.position, MoveTarget) <= 0.01f)
+        {
+            OnArriveTarget?.Invoke(MoveTarget);
+            // 切换到下一个点
+            if (MovePath != null && MovePath.Count > 0 && moveIndex < MovePath.Count - 1)
+            {
+                moveIndex++;
+                MoveTarget = MovePath[moveIndex];
+            }
+        }
+
+        // 前往目标点
+        if (MoveTarget != null)
+        {
+            MoveTarget.z = transform.position.z;
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                MoveTarget,
+                MoveSpeed * Time.deltaTime
+            );
+        }
+
+    }
+
+    private float lastMoveTime;
+    protected void Update_RandomMove(float moveRadius,float _randomMoveGap)
+    {
+        if (Time.time < lastMoveTime + _randomMoveGap) return;
+
+        lastMoveTime = Time.time;
+
+        // 当前世界位置
+        Vector3 currentWorldPos = transform.position;
+
+        // 采样点最多尝试次数
+        int maxTries = 10;
+
+        for (int i = 0; i < maxTries; i++)
+        {
+            // 随机点 = 当前点 + 随机方向圆形分布
+            float angle = UnityEngine.Random.Range(0f, 360f);
+            float radius = UnityEngine.Random.Range(1f, moveRadius);
+
+            Vector3 randomWorldTarget = currentWorldPos + new Vector3(
+                Mathf.Cos(angle * Mathf.Deg2Rad) * radius,
+                Mathf.Sin(angle * Mathf.Deg2Rad) * radius,
+                0f
+            );
+
+            // 转成 Tilemap 格子
+            Vector3Int cellFrom = SceneMod.Instance.World2Cell(currentWorldPos);
+            Vector3Int cellTo = SceneMod.Instance.World2Cell(randomWorldTarget);
+
+            // 判断是否可达
+            if (SceneMod.Instance.IsConnected(cellFrom, cellTo, out List<Vector3Int> cellPath))
+            {
+                MovePath = SceneMod.Instance.Cell2WorldList(cellPath);
+                moveIndex = 0;
+                return;
+            }
+        }
+
+    }
+    #endregion
+
     #region 对外接口
-    public Vector3 MoveTarget;
-    public List<Vector3> MovePath;
-    public UnityAction<Vector3> OnArriveTarget;
 
     private int moveIndex = 0;
 
@@ -182,33 +252,6 @@ public class CharaBase : MonoBehaviour
             var worldPosList = SceneMod.Instance.Cell2WorldList(path);
             MoveTo(worldPosList);
         }
-    }
-
-    private void Update_Move()
-    {
-        // 到达目标点
-        if (Vector3.Distance(transform.position, MoveTarget) <= 0.01f)
-        {
-            OnArriveTarget?.Invoke(MoveTarget);
-            // 切换到下一个点
-            if(MovePath != null && MovePath.Count>0 && moveIndex < MovePath.Count - 1)
-            {
-                moveIndex++;
-                MoveTarget = MovePath[moveIndex];
-            }
-        }
-
-        // 前往目标点
-        if (MoveTarget != null)
-        {
-            MoveTarget.z = transform.position.z;
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                MoveTarget,
-                MoveSpeed * Time.deltaTime
-            );
-        }
-
     }
     #endregion
 }

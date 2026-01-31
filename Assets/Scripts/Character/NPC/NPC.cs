@@ -210,7 +210,24 @@ public class NPC : CharaBase
 
         OnNormalUpdate += () =>
         {
+            switch (MoveStateNow)
+            {
+                case MoveState.Static:
+                    break;
 
+                case MoveState.Pathing:
+                    if(PathingPointList != null && PathingPointList.Count > 0)
+                    {
+                        List<Vector3> WordPath = new List<Vector3>();
+                        PathingPointList.ForEach(point=>WordPath.Add(point.position));
+                        MoveTo(WordPath);
+                    }
+                    break;
+
+                case MoveState.Random:
+                    Update_RandomMove(10, 10);
+                    break;
+            }
         };
 
         OnAlertUpdate += () =>
