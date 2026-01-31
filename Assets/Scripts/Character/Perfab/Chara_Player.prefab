@@ -173,6 +173,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.3863
       objectReference: {fileID: 0}
+    - target: {fileID: 5905758742038298571, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: Clamp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7006002496321813689, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_Sprite
