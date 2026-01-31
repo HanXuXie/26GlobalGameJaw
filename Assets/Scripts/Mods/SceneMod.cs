@@ -11,7 +11,8 @@ public class SceneMod : MonoBehaviour
 
     [Space(10)]
     [Header("网格预设")]
-    public Tilemap PathingMap;
+    public Tilemap Map_Barrier;
+    public Tilemap Map_Build;
 
     [Space(10)]
     [Header("瓦片预设")]
@@ -29,7 +30,8 @@ public class SceneMod : MonoBehaviour
             return;
         }
 
-        PathingMap = transform.Find("Grid/PathingMap").GetComponent<Tilemap>();
+        Map_Barrier = transform.Find("Grid/BarrierMap").GetComponent<Tilemap>();
+        Map_Build = transform.Find("Grid/BarrierMap").GetComponent<Tilemap>();
     }
 
     #region Test
@@ -38,17 +40,6 @@ public class SceneMod : MonoBehaviour
     public Transform startPoint;      // 起点 Transform
     public Transform targetPoint;     // 终点 Transform
     public LineRenderer lineRenderer; // 用于渲染路径
-
-    void Start()
-    {
-        if (lineRenderer == null)
-        {
-            Debug.LogError("请先在 Inspector 中指定 LineRenderer 组件！");
-            return;
-        }
-
-        DrawPath();
-    }
 
     /// <summary>
     /// 寻路并用 LineRenderer 渲染路径
@@ -63,18 +54,18 @@ public class SceneMod : MonoBehaviour
         }
 
         // 转换成 Tilemap 格子坐标
-        Vector3Int startCell = SceneMod.Instance.PathingMap.WorldToCell(startPoint.position);
-        Vector3Int targetCell = SceneMod.Instance.PathingMap.WorldToCell(targetPoint.position);
+        Vector3Int startCell = SceneMod.Instance.Map_Barrier.WorldToCell(startPoint.position);
+        Vector3Int targetCell = SceneMod.Instance.Map_Barrier.WorldToCell(targetPoint.position);
 
         // 寻路
-        if (SceneMod.Instance.IsWalkAble(startCell, targetCell, out List<Vector3Int> path))
+        if (SceneMod.Instance.IsConnected(startCell, targetCell, out List<Vector3Int> path))
         {
             // 转换路径成世界坐标
             Vector3[] worldPositions = new Vector3[path.Count];
             for (int i = 0; i < path.Count; i++)
             {
                 // 获取格子中心的世界坐标
-                worldPositions[i] = SceneMod.Instance.PathingMap.GetCellCenterWorld(path[i]);
+                worldPositions[i] = SceneMod.Instance.Map_Barrier.GetCellCenterWorld(path[i]);
             }
 
             // 设置 LineRenderer
@@ -179,27 +170,52 @@ public class SceneMod : MonoBehaviour
         return null;
     }
 
+    // 世界坐标 到 网格坐标
+    public Vector3Int World2Cell(Vector3 _world)
+    {
+        return Map_Barrier.WorldToCell(_world);
+    }
+
+    // 网格坐标列表 到 世界坐标列表
+    public List<Vector3> Cell2WorldList(List<Vector3Int> _cellPosList)
+    {
+        List<Vector3> worldList = new List<Vector3>();
+
+        if (_cellPosList == null || _cellPosList.Count == 0)
+            return worldList;
+
+        foreach (var cell in _cellPosList)
+        {
+            // 将 Tilemap 的格子坐标转换成 世界坐标
+            Vector3 worldPos = Map_Barrier.GetCellCenterWorld(cell);
+
+            worldList.Add(worldPos);
+        }
+
+        return worldList;
+    }
     #endregion
 
     #region 工具函数
     // 判断一个瓦片是否能走
     public bool TileDefine(Vector3Int _cellPos, bool _ingoreBuild = false)
     {
-        TileBase tile = PathingMap.GetTile(_cellPos);
-        if (tile == null) return false;
+        TileBase tile_barrier = Map_Barrier.GetTile(_cellPos);
+        TileBase tile_build = Map_Barrier.GetTile(_cellPos);
+        if (tile_barrier == null) return true;
 
         // 障碍
         foreach (var b in Tile_Barrier)
         {
-            if (tile == b)
+            if (tile_barrier == b)
                 return false;
         }
 
         // 建筑
-        if (!_ingoreBuild)
-            foreach (var b in Tile_Barrier)
+        if (!_ingoreBuild && tile_build != null)
+            foreach (var b in Tile_Build)
             {
-                if (tile == b)
+                if (tile_barrier == b)
                     return false;
             }
 
@@ -232,7 +248,11 @@ public class SceneMod : MonoBehaviour
             _cellPos + Vector3Int.up,
             _cellPos + Vector3Int.down,
             _cellPos + Vector3Int.left,
-            _cellPos + Vector3Int.right
+            _cellPos + Vector3Int.right,
+            _cellPos + new Vector3Int(1, 1, 0),
+            _cellPos + new Vector3Int(1, -1, 0),
+            _cellPos + new Vector3Int(-1, 1, 0),
+            _cellPos + new Vector3Int(-1, -1, 0),
         };
     }
     #endregion

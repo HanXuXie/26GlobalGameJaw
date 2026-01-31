@@ -288,9 +288,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.067317486}
+  m_Offset: {x: 0, y: -0.005888293}
   serializedVersion: 2
-  m_Radius: 0.23189896
+  m_Radius: 0.14503305
 --- !u!1 &2303202704525779013
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,8 +632,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Health: 0
+  MoveStateNow: 0
   MoveSpeed: 0
+  PathingPointList: []
   StateNow: 0
+  MoveTarget: {x: 0, y: 0, z: 0}
+  MovePath: []
   Speed: {x: 0, y: 0, z: 0}
 --- !u!50 &8934965836779838195
 Rigidbody2D:
@@ -661,7 +665,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &4826064575768082969
 GameObject:
   m_ObjectHideFlags: 0
