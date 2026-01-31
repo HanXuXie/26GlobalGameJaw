@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Weapon_Bite : WeaponBase
 {
-    protected override bool AttackMode(CharaBase[] targets)
+    protected override bool AttackMode(List<CharaBase> targets)
     {
         if (!isAttack) return false;
         CharaBase target = TargetAcquisition.WeaponRangeNearestEnemy(this, targets);

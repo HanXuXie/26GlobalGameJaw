@@ -6,6 +6,59 @@ using UnityEngine.Events;
 
 public class NPC : CharaBase
 {
+    public Collider2D Vision;
+ 
+    public LayerMask detectionMask;
+
+    List<CharaBase> CharaBases = new List<CharaBase>();
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.gameObject.layer);
+
+        Debug.Log(detectionMask.value);
+
+        if ((collision.gameObject.layer & detectionMask.value) !=0)
+        {
+            Debug.Log("检测到视野层");
+            return;
+        }
+
+        Debug.Log(collision.ToString());
+
+        CharaBase target = collision.GetComponentInParent<CharaBase>();
+
+        if (target != null && !CharaBases.Contains(target))
+        {
+            CharaBases.Add(target);
+        }
+
+        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this,CharaBases);
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        CharaBase target = collision.GetComponentInParent<CharaBase>();
+        if (target != null && CharaBases.Contains(target))
+        {
+            CharaBases.Remove(target);
+        }
+        attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     public UnityAction<float, float> OnInfectionChange;
     public UnityAction<float, float> OnAlertChange;
 
@@ -60,7 +113,7 @@ public class NPC : CharaBase
 
 
     [field: SerializeField] public bool isAttack { get; private set; }
-    [field: SerializeField] public CharaBase attackTarget;
+    [field: SerializeField] public CharaBase attackTarget = null;
 
 
 
@@ -111,7 +164,12 @@ public class NPC : CharaBase
     }
     #endregion
 
-    protected  void Start()
+    private void Awake()
+    {
+        
+    }
+
+    protected override void Start()
     {
         CanEnterNormal += () =>
         {
@@ -160,6 +218,11 @@ public class NPC : CharaBase
         ChangeAlert();
         AlertDetection();
         InfectionDetection();
+
+        
+
     }
+
+    
 
 }

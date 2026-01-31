@@ -29,7 +29,7 @@ public class WeaponBase : MonoBehaviour
         weaponCooldown -= Time.deltaTime;
     }
 
-    protected virtual bool AttackMode(CharaBase[] targets)
+    protected virtual bool AttackMode(List<CharaBase> targets)
     {
         return false;
     }

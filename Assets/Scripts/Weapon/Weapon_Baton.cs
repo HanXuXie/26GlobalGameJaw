@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon_Baton : WeaponBase
 {
-    protected override bool AttackMode(CharaBase[] targets)
+    protected override bool AttackMode(List<CharaBase> targets)
     {
         if (!isAttack) return false;
 
