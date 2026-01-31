@@ -8,9 +8,10 @@ public class Chara_Player : CharaBase
     public Vector3 Speed;
 
 
-    public void Update()
+    protected override void Update()
     {
-        
+        base.Update();
+
         Update_Input();
     }
 

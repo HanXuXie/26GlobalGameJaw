@@ -74,9 +74,58 @@ public class CharaBase : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+        // 正常状态
+        if(StateNow == CharaState.Normal)
+        {
+            // 尝试进入警惕
+            if(CanEnterAlert != null && CanEnterAlert.Invoke())
+            {
+                StateNow = CharaState.Alert;
+            }
+            // 尝试进入攻击
+            if (CanEnterAttack != null && CanEnterAttack.Invoke())
+            {
+                StateNow = CharaState.Attack;
+            }
+        }
+        // 警惕状态
+        if (StateNow == CharaState.Alert)
+        {
+            // 尝试进入正常
+            if (CanEnterAlert != null && CanEnterAlert.Invoke())
+            {
+                StateNow = CharaState.Normal;
+            }
+            // 尝试进入攻击
+            if (CanEnterAttack != null && CanEnterAttack.Invoke())
+            {
+                StateNow = CharaState.Attack;
+            }
+        }
+        // 攻击状态
+        if (StateNow == CharaState.Attack)
+        {
+            // 尝试进入正常
+            if (CanEnterAlert != null && CanEnterAlert.Invoke())
+            {
+                StateNow = CharaState.Normal;
+            }
+        }
+
+        switch (StateNow)
+        {
+            case CharaState.Normal:
+                OnNormalUpdate?.Invoke();
+                break;
+
+            case CharaState.Alert:
+                OnAlertUpdate?.Invoke();
+                break;
+
+            case CharaState.Attack:
+                OnAttackUpdate?.Invoke();
+                break;
+        }
     }
-
-
     #endregion
 }
