@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
       value: 0.06198954
       objectReference: {fileID: 0}
+    - target: {fileID: 3924213863497046313, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4127659308564251390, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_Sprite
@@ -138,11 +143,10 @@ MonoBehaviour:
   MovePath: []
   StateNow: 0
   Vision: {fileID: 0}
+  <visionRadius>k__BackingField: 1
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
-  <alertRadius>k__BackingField: 0
-  <visionRadius>k__BackingField: 1
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
   <InfectionResistance>k__BackingField: 0
@@ -150,11 +154,13 @@ MonoBehaviour:
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 1
   m_currentAlertValue: 0
+  <alertRadius>k__BackingField: 0
   <isAlert>k__BackingField: 0
   AlertTime: 0
   MaxAlertTime: 5
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
+  Weapon: {fileID: 0}
   MoveRadius: 0
   MoveCooldown: 0

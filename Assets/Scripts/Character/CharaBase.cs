@@ -85,7 +85,9 @@ public class CharaBase : MonoBehaviour
     public UnityAction<Vector3> OnArriveTarget;
 
     protected Rigidbody2D rb;
+    protected Transform anchor;
     protected AnimControl_Chara animControl;
+    protected VisionAttach visionAttach;
 
     #region Callbacks
     // 血量改变时 [原始值，目标值]
@@ -96,7 +98,9 @@ public class CharaBase : MonoBehaviour
     protected virtual void Awake()
     {
         rb = transform.GetComponent<Rigidbody2D>();
+        anchor = transform.Find("Anchor");
         animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
+        visionAttach = transform.Find("Vision")?.GetComponent<VisionAttach>();
     }
 
     protected virtual void Start()
@@ -185,8 +189,12 @@ public class CharaBase : MonoBehaviour
     private float ArriveTime;
     private void Update_Move()
     {
+        // 先计算 当前真实目标 = MoveTarget + 偏差
+        Vector3 targetWithOffset = MoveTarget + transform.position - anchor.position;
+
+
         // 到达目标点
-        if (Vector3.Distance(transform.position, MoveTarget) <= 0.5f)
+        if (Vector3.Distance(anchor.position, MoveTarget) <= 0.5f)
         {
             // 停止移动
             animControl.onWalk(false);
@@ -212,9 +220,9 @@ public class CharaBase : MonoBehaviour
         if (MoveTarget != null && MoveTarget != Vector3.zero)
         {
 
-            MoveTarget.z = transform.position.z;
+            MoveTarget.z = anchor.position.z;
 
-            if (Vector3.Distance(transform.position, MoveTarget) >= 0.5f)
+            if (Vector3.Distance(anchor.position, MoveTarget) >= 0.5f)
             {
                 // 开始移动
                 animControl.onWalk(true);
@@ -224,7 +232,7 @@ public class CharaBase : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                MoveTarget,
+                targetWithOffset,
                 MoveSpeed * Time.deltaTime
             );
         }
@@ -287,7 +295,7 @@ public class CharaBase : MonoBehaviour
     }
     public void MoveTo(Vector3 _target)
     {
-        Vector3Int startCell = SceneMod.Instance.Map_Barrier.WorldToCell(transform.position);
+        Vector3Int startCell = SceneMod.Instance.Map_Barrier.WorldToCell(anchor.position);
         Vector3Int targetCell = SceneMod.Instance.Map_Barrier.WorldToCell(_target);
 
 
