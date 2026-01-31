@@ -1,18 +1,13 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AppMain : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [LabelText("人类数量")]
+    public int HumanNum;
+    [LabelText("感染者数量")]
+    public int InfectorNum;
+    public int WarningNum;
 }

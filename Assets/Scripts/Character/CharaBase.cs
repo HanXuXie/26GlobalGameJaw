@@ -107,7 +107,7 @@ public class CharaBase : MonoBehaviour
         stateBar = transform.Find("StateBar").GetComponent<StateBarMod>();
         entityFX = transform.Find("Sprite").GetComponent<EntityFX>();
 
-        MaxHealth = Health;
+        MaxHealth = 100;
 
         OnHealthChange += (old, now) =>
         {
