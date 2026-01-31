@@ -71,6 +71,11 @@ public class NPC : CharaBase
             attackTarget = null;
         }
 
+        if(attackTarget != null)
+        {
+            attackAimTarget = attackTarget.transform.Find("Anchor");
+        }
+
     }
 
     #endregion
@@ -137,6 +142,8 @@ public class NPC : CharaBase
     [field: SerializeField] public bool isAttack { get; private set; }
 
     [field: SerializeField] public CharaBase attackTarget = null;
+
+    public Transform attackAimTarget;
 
     [field: SerializeField] public bool hasWeapon { get; private set; }
 
@@ -297,8 +304,8 @@ public class NPC : CharaBase
 
             if (attackTarget != null)
             {
-                visionAttach.SetLookAt(attackTarget.transform);
-                animControl.LookAt(attackTarget.transform);
+                visionAttach.SetLookAt(attackAimTarget);
+                animControl.LookAt(attackAimTarget);
             }
             else
             {
@@ -307,28 +314,27 @@ public class NPC : CharaBase
 
         };
 
-        OnAttackUpdate += () =>
+        OnAttackUpdate += AttackUpdate;
+    }
+
+    protected virtual void AttackUpdate()
+    {
+        Debug.Log("攻击状态");
+
+        if (attackTarget != null)
         {
-            Debug.Log("攻击状态");
+            visionAttach.SetLookAt(attackAimTarget);
+            animControl.LookAt(attackAimTarget);
+        }
+        else
+        {
+            visionAttach.UnSetLookAt();
+        }
 
-            if (attackTarget != null)
-            {
-                visionAttach.SetLookAt(attackTarget.transform);
-                animControl.LookAt(attackTarget.transform);
-            }
-            else
-            {
-                visionAttach.UnSetLookAt();
-            }
-
-            if (attackTarget != null)
-            {
-                Weapon.AttackMode(attackTarget);
-            }
-
-
-
-        };
+        if (attackTarget != null)
+        {
+            Weapon.AttackMode(attackTarget);
+        }
     }
 
     void OnDrawGizmos()

@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639054971972324771
+  platformSettingsDirtyTick: 639055156648700287
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,7 +123,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Frame_0
     originalName: 
-    pivot: {x: 0.18767095, y: 0.31510076}
+    pivot: {x: 0.60306835, y: 0.73986864}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -143,7 +143,7 @@ ScriptedImporter:
     uvTransform: {x: 42, y: 4}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.15453678, y: 0.27285126}
+    pivot: {x: 0.4587182, y: 0.67717534}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -163,7 +163,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 27}
   - name: Frame_2
     originalName: 
-    pivot: {x: 0.3250957, y: 0.29011467}
+    pivot: {x: 0.44503015, y: 0.7165477}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -183,7 +183,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Frame_3
     originalName: 
-    pivot: {x: 0.32342988, y: 0.25325978}
+    pivot: {x: 0.6365921, y: 0.6780274}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -203,7 +203,7 @@ ScriptedImporter:
     uvTransform: {x: 35, y: 27}
   - name: Frame_4
     originalName: 
-    pivot: {x: 0.17830083, y: 0.32509574}
+    pivot: {x: 0.5812055, y: 0.73986894}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -294,9 +294,9 @@ ScriptedImporter:
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0

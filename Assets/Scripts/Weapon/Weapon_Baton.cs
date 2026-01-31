@@ -7,6 +7,8 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Weapon_Baton : WeaponBase
 {
+    public Animator Animator;
+
     public override bool AttackMode(CharaBase target)
     {
         if (!isAttack) return false;
@@ -14,7 +16,9 @@ public class Weapon_Baton : WeaponBase
         if (target == null) return false;
         Debug.Log("攻击");
 
-        this.transform.LookAt(target.transform, Vector3.up);
+        Vector3 aimTran = target.transform.position + new Vector3(0, 2f, 0);
+
+        this.transform.LookAt(aimTran, Vector3.up);
         transform.Rotate(0, -90, 0);
 
         float distance = Vector2.Distance(transform.position, target.transform.position);
@@ -48,6 +52,15 @@ public class Weapon_Baton : WeaponBase
         radius = weaponRange;
     }
 
+    protected override void Awake()
+    {
+        Animator = GetComponent<Animator>();
+    }
+
+    public void ToIdle()
+    {
+        Animator.SetBool("Shot", false);
+    }
 
 
     [Header("扇形参数")]

@@ -18,10 +18,10 @@ public abstract class WeaponBase : MonoBehaviour
     public float weaponAttackInterval;
     public float weaponRange;
 
-    protected float weaponCooldown;
-    protected bool isAttack = true;
+    public float weaponCooldown;
+    public bool isAttack = true;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         Chara = GetComponentInParent<CharaBase>();
     }
@@ -32,6 +32,10 @@ public abstract class WeaponBase : MonoBehaviour
         if (weaponCooldown <= 0)
         {
             isAttack = true;
+        }
+        else
+        {
+            isAttack = false;
         }
         weaponCooldown -= Time.deltaTime;
     }

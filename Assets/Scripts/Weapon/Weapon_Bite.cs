@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Weapon_Bite : WeaponBase
 {
-    private GameObject BitePrefab;
+    public GameObject BitePrefab;
 
 
 
@@ -22,13 +22,11 @@ public class Weapon_Bite : WeaponBase
 
         if (distance > weaponRange) return false;
 
+        Vector3 aimTran = target.transform.position + new Vector3(0, 2f, 0);
+
         weaponCooldown = weaponAttackInterval;
 
-        //调用咬合特效
-
-        GameObject bite = Instantiate(BitePrefab, target.transform);
-
-        StartCoroutine(DestroyBite(bite));
+        Instantiate(BitePrefab, aimTran,target.transform.rotation,target.transform);
 
         target.TakeDamage(weaponDamage);
 

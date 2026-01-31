@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon_pistol : WeaponBase
 {
     public GameObject BulletPrefab;
-
+    public Animator Animator;
 
 
     public override bool AttackMode(CharaBase target)
@@ -15,12 +15,19 @@ public class Weapon_pistol : WeaponBase
         if (target == null) return false;
         Debug.Log("攻击");
 
-        this.transform.LookAt(target.transform, Vector3.up);
+        Vector3 aimTran = target.transform.position + new Vector3(0,2f,0);
+
+        this.transform.LookAt(aimTran, Vector3.up);
         transform.Rotate(0, -90, 0);
 
-        GameObject bullet = Instantiate(BulletPrefab, target.transform.position, target.transform.rotation);
+        Animator.SetBool("Shot", true);
 
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,1);
+        GameObject bullet = Instantiate(BulletPrefab,transform.position,transform.rotation);
+
+
+        bullet.transform.Rotate(0, 0, Random.Range(-7, 7));
+
+        bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * 20;
 
         StartCoroutine(DestroyBullet(bullet));
 
@@ -29,9 +36,19 @@ public class Weapon_pistol : WeaponBase
         return true;
     }
 
+    protected override void Awake()
+    {
+        Animator = GetComponent<Animator>();
+    }
+
     protected override void Update()
     {
         base.Update();
+    }
+
+    public void ToIdle()
+    {
+        Animator.SetBool("Shot", false);
     }
 
     IEnumerator DestroyBullet(GameObject bullet)

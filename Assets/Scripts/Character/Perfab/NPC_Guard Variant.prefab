@@ -113,6 +113,8 @@ MonoBehaviour:
   MovePath: []
   StateNow: 0
   Vision: {fileID: 0}
+  CurrentVisionTime: 0
+  MaxVisionTime: 1
   <visionRadius>k__BackingField: 1
   detectionMask:
     serializedVersion: 2
@@ -130,6 +132,7 @@ MonoBehaviour:
   MaxAlertTime: 5
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
+  attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
   Weapon: {fileID: 0}
   MoveRadius: 0

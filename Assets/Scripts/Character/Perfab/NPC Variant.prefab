@@ -509,6 +509,7 @@ MonoBehaviour:
   MaxAlertTime: 5
   <isAttack>k__BackingField: 0
   attackTarget: {fileID: 0}
+  attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
   Weapon: {fileID: 0}
   MoveRadius: 0

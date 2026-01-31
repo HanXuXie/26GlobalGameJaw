@@ -90,6 +90,7 @@ public class CharaBase : MonoBehaviour
     protected AnimControl_Chara animControl;
     protected VisionAttach visionAttach;
     protected StateBarMod stateBar;
+    protected EntityFX entityFX;
 
     #region Callbacks
     // 血量改变时 [原始值，目标值]
@@ -104,6 +105,7 @@ public class CharaBase : MonoBehaviour
         animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
         visionAttach = transform.Find("Vision")?.GetComponent<VisionAttach>();
         stateBar = transform.Find("StateBar").GetComponent<StateBarMod>();
+        entityFX = transform.Find("Sprite").GetComponent<EntityFX>();
 
         MaxHealth = Health;
 
@@ -329,6 +331,7 @@ public class CharaBase : MonoBehaviour
     public void TakeDamage(float damage)
     {
         Health -= damage;
+        entityFX.StartWhite();
     }
     #endregion
 }
