@@ -71,7 +71,7 @@ public class NPC : CharaBase
             attackTarget = null;
         }
 
-        if(attackTarget != null)
+        if (attackTarget != null)
         {
             attackAimTarget = attackTarget.transform.Find("Anchor");
         }
@@ -214,11 +214,11 @@ public class NPC : CharaBase
     {
         if (attackTarget != null)
         {
-            Debug.Log(isAttack);
             isAttack = true;
         }
     }
     #endregion
+
 
     protected override void Awake()
     {
@@ -234,7 +234,7 @@ public class NPC : CharaBase
         OnInfectionChange += (old, now) =>
         {
             stateBar.OnInfectionChange(old, now, maxInfectionValue);
-            if(now == maxAlertValue)
+            if (now == maxAlertValue)
             {
                 HasInfected();
             }
@@ -243,6 +243,8 @@ public class NPC : CharaBase
 
     protected override void Start()
     {
+        base.Start();
+
         Weapon = GetComponentInChildren<WeaponBase>();
         if (Weapon != null) hasWeapon = true;
 
@@ -302,43 +304,19 @@ public class NPC : CharaBase
             }
         };
 
-        OnAlertUpdate += () =>
-        {
-            Debug.Log("警戒状态");
-
-            if (attackTarget != null)
-            {
-                visionAttach.SetLookAt(attackAimTarget);
-                animControl.LookAt(attackAimTarget);
-            }
-            else
-            {
-                visionAttach.UnSetLookAt();
-            }
-
-        };
+        OnAlertUpdate += AlertUpdate;
 
         OnAttackUpdate += AttackUpdate;
     }
 
+    protected virtual void AlertUpdate()
+    {
+
+    }
+
     protected virtual void AttackUpdate()
     {
-        Debug.Log("攻击状态");
 
-        if (attackTarget != null)
-        {
-            visionAttach.SetLookAt(attackAimTarget);
-            animControl.LookAt(attackAimTarget);
-        }
-        else
-        {
-            visionAttach.UnSetLookAt();
-        }
-
-        if (attackTarget != null)
-        {
-            Weapon.AttackMode(attackTarget);
-        }
     }
 
     void OnDrawGizmos()
@@ -365,6 +343,7 @@ public class NPC : CharaBase
         ChangeAlert();
         AlertDetection();
         InfectionDetection();
+        AttackDetection();
     }
 
 

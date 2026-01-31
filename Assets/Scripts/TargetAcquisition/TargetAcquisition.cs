@@ -47,4 +47,9 @@ public static class TargetAcquisition
         return targets[num];
     }
 
+    public static Vector3 HalfRoad(Vector3 StartPoint, Vector3 FinalPoint)
+    {
+
+    }
+
 }

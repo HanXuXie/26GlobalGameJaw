@@ -48,8 +48,44 @@ public class NPC_Guard : NPC
         CurrentInfectionValue += infectionSpeed * Time.deltaTime / InfectionResistance;
     }
 
+    protected override void AlertUpdate()
+    {
+        base.AlertUpdate();
+        {
+            Debug.Log("警戒状态");
 
+            if (attackTarget != null)
+            {
+                visionAttach.SetLookAt(attackAimTarget);
+                animControl.LookAt(attackAimTarget);
+            }
+            else
+            {
+                visionAttach.UnSetLookAt();
+            }
 
+        };
+    }
+
+    protected override void AttackUpdate()
+    {
+        base.AttackUpdate();
+        if (attackTarget != null)
+        {
+            visionAttach.SetLookAt(attackAimTarget);
+            animControl.LookAt(attackAimTarget);
+        }
+        else
+        {
+            visionAttach.UnSetLookAt();
+        }
+
+        if (attackTarget != null)
+        {
+            Weapon.AttackMode(attackTarget);
+            MoveTo();
+        }
+    }
 
     protected override void Update()
     {
