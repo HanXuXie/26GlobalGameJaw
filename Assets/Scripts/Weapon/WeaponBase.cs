@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,12 +13,19 @@ using UnityEngine;
 
 public class WeaponBase : MonoBehaviour
 {
+    public CharaBase Chara;
     public float weaponDamage;
     public float weaponAttackInterval;
     public float weaponRange;
 
     protected float weaponCooldown;
     protected bool isAttack = true;
+
+    protected void Awake()
+    {
+        Chara = GetComponentInParent<CharaBase>();
+    }
+
 
     protected virtual void Update()
     {
@@ -28,7 +36,7 @@ public class WeaponBase : MonoBehaviour
         weaponCooldown -= Time.deltaTime;
     }
 
-    protected virtual bool AttackMode(List<CharaBase> targets)
+    public virtual bool AttackMode(CharaBase targets)
     {
         return false;
     }

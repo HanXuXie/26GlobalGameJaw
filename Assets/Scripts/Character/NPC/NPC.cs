@@ -6,11 +6,17 @@ using UnityEngine.Events;
 
 public class NPC : CharaBase
 {
+    public UnityAction<float, float> OnInfectionChange;
+    public UnityAction<float, float> OnAlertChange;
+
     public Collider2D Vision;
+    [field: SerializeField] public float visionRadius { get; private set; }
 
     public LayerMask detectionMask;
 
     List<CharaBase> CharaBases = new List<CharaBase>();
+
+    #region 追踪视野内最近的敌人
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -37,7 +43,6 @@ public class NPC : CharaBase
 
     }
 
-
     private void OnTriggerExit2D(Collider2D collision)
     {
 
@@ -50,14 +55,9 @@ public class NPC : CharaBase
         attackTarget = TargetAcquisition.VisionRangeNearestEnemy(this, CharaBases);
     }
 
+    #endregion
 
-
-
-    public UnityAction<float, float> OnInfectionChange;
-    public UnityAction<float, float> OnAlertChange;
-
-    [field: SerializeField] public float alertRadius { get; private set; }
-    [field: SerializeField] public float visionRadius { get; private set; }
+    #region 感染值相关
 
     [field: SerializeField] public float maxInfectionValue { get; private set; } // 感染值相关
 
@@ -80,6 +80,9 @@ public class NPC : CharaBase
 
     [SerializeField] private bool isInfection;
 
+    #endregion
+
+    #region 警惕值机制
 
     [field: SerializeField]
     public float maxAlertValue { get; private set; }   //  警惕值相关
@@ -100,26 +103,34 @@ public class NPC : CharaBase
     }
     [SerializeField] private float m_currentAlertValue;
 
+    [field: SerializeField] public float alertRadius { get; private set; }
+
     [field: SerializeField] public bool isAlert { get; private set; }
 
     public float AlertTime;
 
     public float MaxAlertTime = 5;
 
+    #endregion
 
-
+    #region 武器攻击机制相关
 
     [field: SerializeField] public bool isAttack { get; private set; }
 
     [field: SerializeField] public CharaBase attackTarget = null;
 
-
-
     [field: SerializeField] public bool hasWeapon { get; private set; }
 
+    public WeaponBase Weapon;
+
+    #endregion
+
+    #region 移动相关
 
     public float MoveRadius;
     public float MoveCooldown;
+
+    #endregion
 
     #region 警惕值和感染值检测和改变相关
 
@@ -186,6 +197,9 @@ public class NPC : CharaBase
     {
         base.Awake();
 
+        if(hasWeapon)
+        Weapon = GetComponentInParent<WeaponBase>();
+
         Collider2D[] colliders = this.GetComponentsInChildren<Collider2D>();
         foreach (Collider2D collider in colliders)
         {
@@ -251,6 +265,12 @@ public class NPC : CharaBase
 
         OnAttackUpdate += () =>
         {
+            if (attackTarget != null)
+            {
+                Weapon.AttackMode()
+            }
+
+
 
         };
     }

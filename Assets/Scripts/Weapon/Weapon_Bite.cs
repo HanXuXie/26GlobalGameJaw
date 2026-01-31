@@ -6,10 +6,9 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Weapon_Bite : WeaponBase
 {
-    protected override bool AttackMode(List<CharaBase> targets)
+    public override bool AttackMode(CharaBase target)
     {
         if (!isAttack) return false;
-        CharaBase target = TargetAcquisition.WeaponRangeNearestEnemy(this, targets);
         if (target == null) return false;
         target.Health -= weaponDamage;
         //调用咬合特效

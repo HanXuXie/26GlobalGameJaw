@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class Weapon_Baton : WeaponBase
 {
-    protected override bool AttackMode(List<CharaBase> targets)
+    public override bool AttackMode(CharaBase target)
     {
         if (!isAttack) return false;
 
-        CharaBase target = TargetAcquisition.WeaponRangeNearestEnemy(this, targets);
+        if (target == null) return false;
 
-        if(target == null) return false;
-
-
-
-
-
-
-
-
-
+        this.transform.LookAt(target.transform);
 
         return true;
-       
+
 
 
     }

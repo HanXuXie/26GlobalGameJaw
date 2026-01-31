@@ -13,8 +13,11 @@ public static class TargetAcquisition
         for (int i = 0; i < targets.Count; i++)
         {
             if (targets[i] == null) continue;
+            if (targets[i].Clamp == targetingStart.Chara.Clamp) continue;
+
             float tempNum = Vector3.Distance(targetingStart.transform.position, targets[i].transform.position);
             if (tempNum > targetingStart.weaponRange) continue;
+
             if (ans > tempNum)
             {
                 ans = tempNum;
