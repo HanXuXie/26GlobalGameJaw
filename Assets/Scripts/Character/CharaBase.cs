@@ -93,7 +93,7 @@ public class CharaBase : MonoBehaviour
     #endregion
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         rb = transform.GetComponent<Rigidbody2D>();
         animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
