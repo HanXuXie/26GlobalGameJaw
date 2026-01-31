@@ -44,7 +44,7 @@ public class CharaBase : MonoBehaviour
 
     [LabelText("角色阵营")]
     public CharaClamp Clamp;
-    
+
     [SerializeField, LabelText("血量")]
     private float m_Health;
     public float Health
@@ -98,7 +98,7 @@ public class CharaBase : MonoBehaviour
         rb = transform.GetComponent<Rigidbody2D>();
         animControl = transform.Find("Sprite").GetComponent<AnimControl_Chara>();
     }
-     
+
     protected virtual void Start()
     {
         OnNormalUpdate += Update_Move;
@@ -109,6 +109,7 @@ public class CharaBase : MonoBehaviour
         Update_StateMachine();
         Update_Move();
     }
+
 
     #region 状态机
     [Space(10)]
@@ -126,10 +127,10 @@ public class CharaBase : MonoBehaviour
     protected void Update_StateMachine()
     {
         // 正常状态
-        if(StateNow == CharaState.Normal)
+        if (StateNow == CharaState.Normal)
         {
             // 尝试进入警惕
-            if(CanEnterAlert != null && CanEnterAlert.Invoke())
+            if (CanEnterAlert != null && CanEnterAlert.Invoke())
             {
                 StateNow = CharaState.Alert;
             }
@@ -202,7 +203,7 @@ public class CharaBase : MonoBehaviour
             }
         }
 
-        if(Time.time < ArriveTime + ArriveWaitTime) return;
+        if (Time.time < ArriveTime + ArriveWaitTime) return;
 
         // 前往目标点
         if (MoveTarget != null && MoveTarget != Vector3.zero)
@@ -222,7 +223,7 @@ public class CharaBase : MonoBehaviour
     }
 
     private float lastMoveTime;
-    protected void Update_RandomMove(float moveRadius,float _randomMoveGap)
+    protected void Update_RandomMove(float moveRadius, float _randomMoveGap)
     {
         if (Time.time < lastMoveTime + _randomMoveGap) return;
 
@@ -286,6 +287,11 @@ public class CharaBase : MonoBehaviour
             var worldPosList = SceneMod.Instance.Cell2WorldList(path);
             MoveTo(worldPosList);
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        Health -= damage;
     }
     #endregion
 }

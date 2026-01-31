@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Weapon_Bite : WeaponBase
 {
+    private GameObject BitePrefab;
+
+
+
+
     public override bool AttackMode(CharaBase target)
     {
         if (!isAttack) return false;
@@ -14,18 +20,25 @@ public class Weapon_Bite : WeaponBase
 
         float distance = Vector2.Distance(transform.position, target.transform.position);
 
-        if(distance > weaponRange) return false;
+        if (distance > weaponRange) return false;
 
         //调用咬合特效
 
-        Instantiate()
+        GameObject bite = Instantiate(BitePrefab, target.transform);
 
-        target.Health -= weaponDamage;
+        StartCoroutine(DestroyBite(bite));
+
+        target.TakeDamage(weaponDamage);
 
         return true;
     }
 
+    IEnumerator DestroyBite(GameObject bite)
+    {
+        yield return new WaitForSeconds(0.2f);
 
+        Destroy(bite);
+    }
 
 }
 
