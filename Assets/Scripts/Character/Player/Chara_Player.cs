@@ -50,7 +50,7 @@ public class Chara_Player : CharaBase
         }
 
         // 左键普攻
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !onAttack)
         {
             DoAttack();
         }
@@ -72,10 +72,13 @@ public class Chara_Player : CharaBase
         rb.velocity = Speed;
     }
 
+    private bool onAttack;
     // 开始普A
     public void DoAttack()
     {
         Sprite_AttackRange.DOComplete();
+
+        onAttack = true;
         PlayerState = PlayerState.Henshin;
         animControl.onHenshin(true);
 
@@ -86,6 +89,7 @@ public class Chara_Player : CharaBase
             .OnComplete(() =>
             {
                 Sprite_AttackRange.color = new Color(1, 1, 1, 1);
+                onAttack = false;
             })
             .SetLink(Sprite_AttackRange.gameObject);
     }
@@ -95,6 +99,7 @@ public class Chara_Player : CharaBase
     public void EndAttack()
     {
         Sprite_AttackRange.DOComplete();
+        onAttack = true;
 
         Sprite_AttackRange.color = new Color(1, 1, 1, 1);
         Sprite_AttackRange.DOFade(0, 1)
@@ -106,6 +111,7 @@ public class Chara_Player : CharaBase
 
                 PlayerState = PlayerState.Normal;
                 animControl.onHenshin(false);
+                onAttack = false;
             })
             .SetLink(Sprite_AttackRange.gameObject);
     }

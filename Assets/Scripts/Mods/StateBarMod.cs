@@ -62,6 +62,7 @@ public class StateBarMod : MonoBehaviour
     public void OnInfectionChange(float _old, float _now, float _total)
     {
         LastChangeTime_Infection = Time.time;
+        Debug.LogWarning(1);
 
         Infection_now.gameObject.SetActive(true);
         Infection_old.gameObject.SetActive(true);

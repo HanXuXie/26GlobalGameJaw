@@ -496,7 +496,7 @@ MonoBehaviour:
     m_Bits: 0
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
-  <InfectionResistance>k__BackingField: 0
+  <InfectionResistance>k__BackingField: 1
   isInfection: 0
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 1
