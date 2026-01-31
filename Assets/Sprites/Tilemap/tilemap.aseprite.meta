@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c0198d7b7d72274198697e03f162198
+guid: 95e45ad5812b1ab4b806489fa074e60d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639054782894729681
+  platformSettingsDirtyTick: 639054923231134424
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: tilemap
+  - name: tilemap 1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5037037, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 80
-      height: 48
-    spriteID: 8342172a23651284ca790253b9c1f7ef
+      width: 270
+      height: 64
+    spriteID: 27b73e8a508c5b04e9639b5fc78fa0e8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -150,10 +150,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 36
+      y: 52
       width: 16
       height: 16
-    spriteID: 39bfd89ff46eca949b32abfb0e7b36aa
+    spriteID: ff73afdb78da3124b80ba1afe4d54f83
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,10 +170,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 20
+      y: 36
       width: 16
       height: 16
-    spriteID: 4834ab5cefee8424f9f232e842690c44
+    spriteID: f9676e3f66ecb624587adc0a4191142c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -190,10 +190,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 20
       width: 16
       height: 16
-    spriteID: c9439dd9812ec934abbca97128ba5886
+    spriteID: fc679ab8d0b71244281e730c8eca1923
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -209,11 +209,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 20
-      y: 36
+      x: 4
+      y: 4
       width: 16
       height: 16
-    spriteID: 92ecd311651138740af5efa1e8c21447
+    spriteID: fa516f1b21796c241b697a7bc4d2f614
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -230,10 +230,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 20
-      y: 20
+      y: 52
       width: 16
       height: 16
-    spriteID: e2dba20a8d9a12b43a36daa078398e8b
+    spriteID: 3203caec91c7c9245b88e4c2bbe8a18c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -249,11 +249,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 20
       y: 36
       width: 16
       height: 16
-    spriteID: e72711bb394d971419230ff62dfaf5d3
+    spriteID: d40d10bd85cea394ca63a1a788e4706e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -269,11 +269,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
+      x: 20
       y: 20
       width: 16
       height: 16
-    spriteID: da341f2adfb66ba47827d499cae29331
+    spriteID: be14892bea6e6e749bb277e6b5892455
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -289,11 +289,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 52
-      y: 36
+      x: 20
+      y: 4
       width: 16
       height: 16
-    spriteID: e6bc738c9812b1e439db2d119c8faf71
+    spriteID: f4dd1af260ed34a4aa965e738fc2bb1e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -309,11 +309,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 52
-      y: 20
+      x: 36
+      y: 52
       width: 16
       height: 16
-    spriteID: 521790823eb7b134695572d3e46fedaa
+    spriteID: 348d8305afb0fcd44ac5a4d865313410
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -329,11 +329,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 52
-      y: 4
+      x: 36
+      y: 36
       width: 16
       height: 16
-    spriteID: 418392f833217fa418ac4169c8021cbb
+    spriteID: bda97bf675853b849aa9a1d9af3cd616
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -349,11 +349,551 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
+      x: 36
+      y: 20
+      width: 16
+      height: 16
+    spriteID: e9488be9fabfdd649b356fbbc6fd8030
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_11
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 16
+      height: 16
+    spriteID: 2c680889da722974dab4baf8e307cf3d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_12
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 52
+      width: 16
+      height: 16
+    spriteID: d6789f31f045f874b9cf2b8f64239c0c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_13
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 36
+      width: 16
+      height: 16
+    spriteID: 4602456af842e1a45bcbe2a8cf891de3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_14
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 20
+      width: 16
+      height: 16
+    spriteID: 1e2fd3e6771fa6a4daae8ac8a6ff2ca3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_15
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 4
+      width: 16
+      height: 16
+    spriteID: bf953391312b3164eaddac8e1a2e1f51
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_16
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 36
+      width: 16
+      height: 16
+    spriteID: 4f5356a2e660c1b429070a7ed3d3e774
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_17
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
       x: 68
       y: 20
       width: 16
       height: 16
-    spriteID: 1fe5750a327d2a7439e2f6f20c9d9da7
+    spriteID: 2b51caee45cc4ca41b90d9e581c72754
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_18
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 36
+      width: 16
+      height: 16
+    spriteID: 4717f98654e83804caa17a314da33181
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_19
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 52
+      width: 16
+      height: 16
+    spriteID: fc24a6de072d33548bc0554676c51a14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_20
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 36
+      width: 16
+      height: 16
+    spriteID: d4138a05d178a044e94cbf53a5aa36c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_21
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 148
+      y: 52
+      width: 16
+      height: 16
+    spriteID: 2aa5753b98a97374592efdc6f81b0d0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_22
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 52
+      width: 16
+      height: 16
+    spriteID: 7f7c315c9c9d389408acc107612a3932
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_23
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 36
+      width: 16
+      height: 16
+    spriteID: 34b6ab6e124ab034db024ad1e4742d0f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_24
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 52
+      width: 16
+      height: 16
+    spriteID: d754aacb2bf632a4a80a7e3104e44a77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_25
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 84
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 1e87e951e42c65b42b84b2ac15baf0d9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_26
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 9fd29c1e1139bb94daa17427aca27cbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_27
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 100
+      y: 36
+      width: 16
+      height: 32
+    spriteID: e03a45b1dfac7e04da2dc229edb0a12a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_28
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 16
+      height: 32
+    spriteID: a9e20512946942b4192641adb0509b31
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_29
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 180
+      y: 20
+      width: 16
+      height: 32
+    spriteID: 4054b23be8ce8974bad1401dff6b103e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_30
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 164
+      y: 4
+      width: 16
+      height: 32
+    spriteID: 574edbe4740f0cb47b6135add6adb5c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_31
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 20
+      width: 16
+      height: 32
+    spriteID: babd94d543c845e438347c9c6c61bdc0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_32
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 214
+      y: 20
+      width: 16
+      height: 32
+    spriteID: e8e350a34d959f64a849ba11e452d494
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_33
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 230
+      y: 20
+      width: 16
+      height: 32
+    spriteID: e8d0ea557cb526c48b2bbfb09163ac0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_34
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 246
+      y: 20
+      width: 16
+      height: 32
+    spriteID: 3f12ff0085460ec46a5148a310a574ca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_35
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 262
+      y: 20
+      width: 16
+      height: 32
+    spriteID: 3ee081dc5860ce44a933309a406f6f99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_36
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 198
+      y: 52
+      width: 16
+      height: 16
+    spriteID: 6c141fb5bafa315458cc37c4f41ae602
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: tilemap_37
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 36
+      width: 16
+      height: 32
+    spriteID: aff3474d472cb2e44a7d065145ab2aa4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -364,8 +904,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1756119096
-    name: tilemap
+    guid: 935734629
+    name: tilemap 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
@@ -376,9 +916,9 @@ ScriptedImporter:
       cellRect:
         x: 0
         y: 0
-        width: 80
-        height: 48
-      spriteId: 8342172a23651284ca790253b9c1f7ef
+        width: 270
+        height: 64
+      spriteId: 27b73e8a508c5b04e9639b5fc78fa0e8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -433,4 +973,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 48}
+  canvasSize: {x: 272, y: 64}

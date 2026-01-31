@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class AttackRangeAttach : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerStay(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        NPC npc = null;
+        if ((npc = other.GetComponent<NPC>() )!= null)
+        {
+            npc.ChangeInfection(1);
+        }
     }
 }
