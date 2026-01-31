@@ -36,7 +36,7 @@ public abstract class WeaponBase : MonoBehaviour
         weaponCooldown -= Time.deltaTime;
     }
 
-    public abstract bool AttackMode(CharaBase targets);
+    public abstract bool AttackMode(CharaBase target);
 
 
 }

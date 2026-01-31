@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -13,9 +14,12 @@ public class Weapon_Baton : WeaponBase
         if (target == null) return false;
         Debug.Log("攻击");
 
-        this.transform.LookAt(target.transform,Vector3.up);
+        this.transform.LookAt(target.transform, Vector3.up);
         transform.Rotate(0, -90, 0);
 
+        float distance = Vector2.Distance(transform.position, target.transform.position);
+
+        if (distance > weaponRange) return false;
 
 
         List<CharaBase> charaBases = GetTargetsInCone();
@@ -24,10 +28,14 @@ public class Weapon_Baton : WeaponBase
 
         foreach (CharaBase charaBase in charaBases)
         {
+            if (charaBase.Clamp == Chara.Clamp) continue;
+
             charaBase.TakeDamage(weaponDamage);
             Debug.Log("击中目标");
             Debug.Log(charaBase.ToString());
         }
+
+        weaponCooldown = weaponAttackInterval;
 
         return true;
 
@@ -39,10 +47,6 @@ public class Weapon_Baton : WeaponBase
     {
         radius = weaponRange;
     }
-
-
-
-
 
 
 
