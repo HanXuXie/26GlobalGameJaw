@@ -24,6 +24,10 @@ public class Weapon_pistol : WeaponBase
 
         GameObject bullet = Instantiate(BulletPrefab, transform.position, transform.rotation);
 
+        isAttack = false;
+
+        weaponCooldown = weaponAttackInterval;
+
 
         bullet.transform.Rotate(0, 0, Random.Range(-7, 7));
 

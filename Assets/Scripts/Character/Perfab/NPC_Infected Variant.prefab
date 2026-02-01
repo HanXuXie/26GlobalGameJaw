@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7039207147014747843, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Chara: {fileID: 0}
   weaponDamage: 22
-  weaponAttackInterval: 1
+  weaponAttackInterval: 0.5
   weaponRange: 2.5
   weaponCooldown: 0
   isAttack: 1

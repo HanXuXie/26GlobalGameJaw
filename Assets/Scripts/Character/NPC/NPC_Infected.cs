@@ -87,7 +87,7 @@ public class NPC_Infected : NPC
             if (canSet && distance > Weapon.weaponRange - 0.5)
             {
                 StartCoroutine(SetMovePoint());
-                MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));
+                MoveTo(attackTarget.transform.position);
             }
             else if (distance <= Weapon.weaponRange - 0.5)
             {

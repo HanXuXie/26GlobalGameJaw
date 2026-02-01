@@ -20,7 +20,7 @@ public class NPC : CharaBase
 
     public bool canSet = true;
 
-    List<CharaBase> CharaBases = new List<CharaBase>();
+    public List<CharaBase> CharaBases = new List<CharaBase>();
 
     #region 追踪视野内最近的敌人
 
@@ -76,6 +76,10 @@ public class NPC : CharaBase
         if (attackTarget != null)
         {
             attackAimTarget = attackTarget.transform.Find("Anchor");
+        }
+        else
+        {
+            attackAimTarget = null;
         }
 
     }
@@ -176,7 +180,7 @@ public class NPC : CharaBase
         {
             CurrentAlertValue = 0;
         }
-        if(CurrentAlertValue == 0)
+        if (CurrentAlertValue == 0)
             transform.Find("Alert").gameObject.SetActive(false);
         else
             transform.Find("Alert").gameObject.SetActive(true);
@@ -370,6 +374,7 @@ public class NPC : CharaBase
         AlertDetection();
         InfectionDetection();
         AttackDetection();
+        AttackTargetUpdate();
     }
 
 

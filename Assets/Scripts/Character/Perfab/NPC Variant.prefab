@@ -511,10 +511,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5390690907323978219}
-    - targetCorrespondingSourceObject: {fileID: 3690037611468741563, guid: 6a180327b36923b4b8ec1215d8466e35,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1043913229919216227}
     - targetCorrespondingSourceObject: {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       insertIndex: -1
@@ -688,7 +684,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.031532288, y: 1.8822}
@@ -701,21 +697,6 @@ GameObject:
   m_PrefabInstance: {fileID: 6373216222318460487}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5390690907323978219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730309786018817532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07e2ba69d344d3419ee7270fd7cbfbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sr: {fileID: 0}
-  flashDuration: 0.3
-  hitMat: {fileID: 2100000, guid: 1d4665a09835cf245881d3c82e8e229a, type: 2}
---- !u!114 &1043913229919216227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

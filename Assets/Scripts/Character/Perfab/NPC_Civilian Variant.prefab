@@ -102,12 +102,12 @@ PrefabInstance:
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.34
+      value: 33.28
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.56
+      value: 17.97
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -259,11 +259,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Clamp: 0
   m_Health: 100
-  MoveStateNow: 0
+  MoveStateNow: 1
   MoveSpeed: 4
-  ArriveWaitTime: 0
-  ifLoop: 0
-  PathingPointList: []
+  ArriveWaitTime: 4
+  ifLoop: 1
+  PathingPointList:
+  - {fileID: 0}
+  - {fileID: 0}
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []
   StateNow: 0

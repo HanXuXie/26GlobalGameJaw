@@ -19,7 +19,7 @@ public abstract class WeaponBase : MonoBehaviour
     public float weaponRange;
 
     public float weaponCooldown;
-    public bool isAttack = true;
+    public bool isAttack = false;
 
     protected virtual void Awake()
     {
