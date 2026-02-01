@@ -91,10 +91,6 @@ public class NPC_Guard : NPC
 
         if (attackTarget != null)
         {
-<<<<<<< Updated upstream
-            Weapon.AttackMode(attackTarget);
-            //MoveTo();
-=======
             Battle = Weapon.AttackMode(attackTarget);
 
             if (Battle) return;
@@ -104,7 +100,6 @@ public class NPC_Guard : NPC
                 StartCoroutine(SetMovePoint());
                 MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));
             }
->>>>>>> Stashed changes
         }
     }
 
