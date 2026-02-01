@@ -338,7 +338,7 @@ public class CharaBase : MonoBehaviour
     public void HasInfected()
     {
         transform.Find("HasInfected").gameObject.SetActive(true);
-        AppMain.instance.ChangeOneHunman();
+        AppMain.instance.ChangeOneHunman(this);
     }
     #endregion
 }

@@ -43,6 +43,9 @@ public class AppMain : MonoBehaviour
     [LabelText("小人列表")]
     public List<CharaBase> CharaList = new();
 
+    [LabelText("待变化小人列表")]
+    public List<CharaBase> InfectedCharaList = new();
+
     public WarningState WarningState
     {
         get
@@ -114,13 +117,20 @@ public class AppMain : MonoBehaviour
 
     #endregion
     #region 对外接口
+    // 爆发感染
+    public void Boom()
+    {
+
+    }
+
     // 转变一个人类
-    public void ChangeOneHunman()
+    public void ChangeOneHunman(CharaBase _chara)
     {
         HumanNum = Mathf.Max(HumanNum - 1, 0);
         InfectorNum = Mathf.Max(InfectorNum + 1, 0);
         ChangeWarningNum(WarningChange_ChangeHunman);
-        RefreshTopBar(); 
+        RefreshTopBar();
+        InfectedCharaList.Add(_chara);
     }
 
     // 发现变身后的玩家
@@ -150,6 +160,7 @@ public class AppMain : MonoBehaviour
         RefreshTopBar();
     }
 
+    // 改变警惕值
     public void ChangeWarningNum(float _value)
     {
         float oldValue = WarningNum;
