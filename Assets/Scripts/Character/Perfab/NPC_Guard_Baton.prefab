@@ -178,7 +178,7 @@ MonoBehaviour:
   canSet: 1
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
-  <InfectionResistance>k__BackingField: 50
+  <InfectionResistance>k__BackingField: 4
   isInfection: 0
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 10
@@ -211,12 +211,12 @@ PrefabInstance:
     - target: {fileID: 583497142807568861, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
         type: 3}
       propertyPath: weaponDamage
-      value: 14
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 583497142807568861, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
         type: 3}
       propertyPath: weaponAttackInterval
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7666255565841023840, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
         type: 3}

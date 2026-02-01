@@ -112,7 +112,7 @@ public class CharaBase : MonoBehaviour
         OnHealthChange += (old, now) =>
         {
             stateBar.OnHealthChange(old, now, MaxHealth);
-            if(now <= 0) Dead();
+            if (now <= 0) Dead();
         };
     }
 
@@ -343,6 +343,8 @@ public class CharaBase : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        AudioManager.instance.PlayEffect(MusicEffectType.受击, gameObject);
+
         Health -= damage;
         entityFX.StartWhite();
     }
