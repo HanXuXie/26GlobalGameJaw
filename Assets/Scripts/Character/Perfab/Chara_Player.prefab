@@ -533,6 +533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8934965836779838195, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934965836779838195, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 1783
       objectReference: {fileID: 0}
