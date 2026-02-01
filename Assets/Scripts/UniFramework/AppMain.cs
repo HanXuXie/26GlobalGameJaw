@@ -5,6 +5,7 @@ using TMPro;
 using Unity.XR.OpenVR;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public enum WarningState
 {
@@ -30,12 +31,14 @@ public class AppMain : MonoBehaviour
     [LabelText("怀疑值上限")]
     public float MaxWarningNum = 100;
 
+    [LabelText("怀疑值变化_每秒上升")]
+    public float WarningChange_PreSecond = 1;
     [LabelText("怀疑值变化_发现变身玩家")]
-    public float WarningChange_FindPlayer = 1;
+    public float WarningChange_FindPlayer = 25;
     [LabelText("怀疑值变化_发现感染者")]
-    public float WarningChange_FindInfector = 1;
+    public float WarningChange_FindInfector = 100;
     [LabelText("怀疑值变化_转变感染者")]
-    public float WarningChange_ChangeHunman = 5;
+    public float WarningChange_ChangeHunman = 10;
 
     [LabelText("是否爆发")]
     public bool IfBoom;
@@ -90,6 +93,7 @@ public class AppMain : MonoBehaviour
     private void Update()
     {
         RefreshRightBar();
+        ChangeWarningNum(WarningChange_PreSecond * Time.deltaTime);
     }
     #region 回调函数
 
@@ -161,13 +165,13 @@ public class AppMain : MonoBehaviour
     // 发现变身后的玩家
     public void FindPlayer_Henshin()
     {
-
+        ChangeWarningNum(WarningChange_FindPlayer);
     }
 
     // 发现感染者
     public void FindInfector()
     {
-
+        ChangeWarningNum(WarningChange_FindInfector);
     }
 
     // 小人Start注册

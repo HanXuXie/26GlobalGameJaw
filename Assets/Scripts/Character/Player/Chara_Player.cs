@@ -69,7 +69,7 @@ public class Chara_Player : CharaBase
     public void FixedUpdate()
     {
         // 更新速度
-        rb.velocity = Speed;
+        rb.velocity = Speed * 2f;
     }
 
     private bool onAttack;
@@ -91,7 +91,7 @@ public class Chara_Player : CharaBase
 
         Sprite_AttackRange.color = new Color(1,1,1,0);
         Sprite_AttackRange.gameObject.SetActive(true);
-        Sprite_AttackRange.DOFade(1, 1)
+        Sprite_AttackRange.DOFade(1, 0.5f)
             .SetEase(Ease.InQuad)
             .OnComplete(() =>
             {
@@ -110,7 +110,7 @@ public class Chara_Player : CharaBase
         onAttack = true;
 
         Sprite_AttackRange.color = new Color(1, 1, 1, 1);
-        Sprite_AttackRange.DOFade(0, 1)
+        Sprite_AttackRange.DOFade(0, 0.5f)
             .SetEase(Ease.InQuad)
             .OnComplete(() =>
             {
