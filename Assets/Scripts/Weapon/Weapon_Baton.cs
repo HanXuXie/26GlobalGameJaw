@@ -19,6 +19,8 @@ public class Weapon_Baton : WeaponBase
         if (newChara.Clamp == Chara.Clamp) return;
 
         newChara.TakeDamage(weaponDamage);
+
+        AudioManager.instance.PlayEffect(MusicEffectType.棍击,gameObject);
     }
 
 

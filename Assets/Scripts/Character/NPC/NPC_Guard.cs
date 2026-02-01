@@ -26,6 +26,8 @@ public class NPC_Guard : NPC
                 Debug.Log("检测到感染者");
                 CurrentAlertValue += 100;
 
+                AppMain.instance.FindInfector();
+
                 hasAlert = true;
             }
             //获取行为

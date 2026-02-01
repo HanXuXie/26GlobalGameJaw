@@ -191,6 +191,7 @@ public class NPC : CharaBase
         if (CurrentAlertValue >= maxAlertValue && !isAlert)
         {
             isAlert = true;
+            AppMain.instance.FindPlayer_Henshin();
             AlertTime = MaxAlertTime;
         }
         else if (CurrentAlertValue < maxAlertValue || AlertTime <= 0)
@@ -219,6 +220,11 @@ public class NPC : CharaBase
         if (attackTarget != null)
         {
             isAttack = true;
+        }
+
+        if (!isAlert && attackTarget == null)
+        {
+            isAttack = false;
         }
     }
     #endregion
