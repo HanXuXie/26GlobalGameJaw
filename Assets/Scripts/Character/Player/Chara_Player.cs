@@ -137,6 +137,6 @@ public class Chara_Player : CharaBase
     // 引爆
     public void DoBoom()
     {
-
+        AppMain.instance.Boom();
     }
 }
