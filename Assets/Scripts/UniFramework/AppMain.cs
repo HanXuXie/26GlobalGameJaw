@@ -122,6 +122,7 @@ public class AppMain : MonoBehaviour
 
                 var infectonObj = Instantiate(InfectonPerfab);
                 infectonObj.transform.position = chara.transform.position;
+                infectonObj.gameObject.SetActive(true);
 
                 Destroy(chara.gameObject);
             }
