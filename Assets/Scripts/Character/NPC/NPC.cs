@@ -18,6 +18,8 @@ public class NPC : CharaBase
 
     public LayerMask detectionMask;
 
+    public bool canSet = true;
+
     List<CharaBase> CharaBases = new List<CharaBase>();
 
     #region 追踪视野内最近的敌人
@@ -140,6 +142,8 @@ public class NPC : CharaBase
     #region 武器攻击机制相关
 
     [field: SerializeField] public bool isAttack { get; private set; }
+
+    public bool Battle = false;
 
     [field: SerializeField] public CharaBase attackTarget = null;
 
@@ -331,7 +335,14 @@ public class NPC : CharaBase
         Gizmos.DrawWireSphere(transform.Find("Anchor").position, alertRadius);
     }
 
+    public IEnumerator SetMovePoint()
+    {
+        canSet = false;
 
+        yield return new WaitForSeconds(1f);
+
+        canSet = true;
+    }
 
 
     protected override void Update()
