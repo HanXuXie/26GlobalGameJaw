@@ -83,7 +83,7 @@ public class NPC_Guard : NPC
         if (attackTarget != null)
         {
             Weapon.AttackMode(attackTarget);
-            MoveTo();
+            //MoveTo();
         }
     }
 

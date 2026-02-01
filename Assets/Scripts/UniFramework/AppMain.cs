@@ -30,8 +30,18 @@ public class AppMain : MonoBehaviour
     [LabelText("怀疑值上限")]
     public float MaxWarningNum = 100;
 
+    [LabelText("怀疑值变化_发现变身玩家")]
+    public float WarningChange_FindPlayer = 1;
+    [LabelText("怀疑值变化_发现感染者")]
+    public float WarningChange_FindInfector = 1;
+    [LabelText("怀疑值变化_转变感染者")]
+    public float WarningChange_ChangeHunman = 5;
+
     [LabelText("是否爆发")]
     public bool IfBoom;
+
+    [LabelText("小人列表")]
+    public List<CharaBase> CharaList = new();
 
     public WarningState WarningState
     {
@@ -50,7 +60,8 @@ public class AppMain : MonoBehaviour
     
     public Image Image_WarningStrip;
     public Image Image_WarningArrow;
-
+    public Image Image_HunmanStrip;
+    public Image Image_InfectionStrip;
 
     private void Awake()
     {
@@ -103,15 +114,67 @@ public class AppMain : MonoBehaviour
 
     #endregion
     #region 对外接口
+    // 转变一个人类
+    public void ChangeOneHunman()
+    {
+        HumanNum = Mathf.Max(HumanNum - 1, 0);
+        InfectorNum = Mathf.Max(InfectorNum + 1, 0);
+        ChangeWarningNum(WarningChange_ChangeHunman);
+        RefreshTopBar(); 
+    }
+
+    // 发现变身后的玩家
+    public void FindPlayer_Henshin()
+    {
+
+    }
+
+    // 发现感染者
+    public void FindInfector()
+    {
+
+    }
+
+    // 小人Start注册
+    public void CharaRegist(CharaBase _charaBase)
+    {
+        CharaList.Add(_charaBase);
+        if(_charaBase.Clamp == CharaClamp.Hunman)
+        {
+            HumanNum++;
+        }
+        else
+        {
+            InfectorNum++;
+        }
+        RefreshTopBar();
+    }
+
     public void ChangeWarningNum(float _value)
     {
+        float oldValue = WarningNum;
         WarningNum = Mathf.Clamp(WarningNum + _value, 0, MaxWarningNum);
+        if (oldValue <= 25 && WarningNum > 25)
+        {
+            AudioManager.instance.PlayEffect(MusicEffectType.一级警报, gameObject);
+        }
+        if (oldValue <= 50 && WarningNum > 50)
+        {
+            AudioManager.instance.PlayEffect(MusicEffectType.二级警报, gameObject);
+        }
+        if (oldValue <= 75 && WarningNum > 75)
+        {
+            AudioManager.instance.PlayEffect(MusicEffectType.三级警报, gameObject);
+        }
     }
 
     public void RefreshTopBar()
     {
         var text_InfectorNum = transform.Find("TopBar/Text_InfectorNum").GetComponent<TextMeshProUGUI>();
         var text_HumanNum = transform.Find("TopBar/Text_HumanNum").GetComponent<TextMeshProUGUI>();
+
+        Image_HunmanStrip.fillAmount = (float)HumanNum / (float)(InfectorNum + HumanNum);
+        Image_InfectionStrip.fillAmount = (float)InfectorNum / (float)(InfectorNum + HumanNum);
 
         text_InfectorNum.text = $"感染数:{InfectorNum.ToString()}";
         text_HumanNum.text = $"人类数:{HumanNum.ToString()}";

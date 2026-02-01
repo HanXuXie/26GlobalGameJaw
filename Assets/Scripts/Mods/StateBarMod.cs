@@ -2,10 +2,14 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class StateBarMod : MonoBehaviour
 {
     public static float FadeDeltaTime = 3f;
+
+    public Transform Infection;
+    public Transform Health;
 
     public SpriteRenderer Infection_old;
     public SpriteRenderer Infection_now;
@@ -26,21 +30,19 @@ public class StateBarMod : MonoBehaviour
 
     private void Update()
     {
-        if(Infection_now.gameObject.activeSelf == true)
+        if(Infection.gameObject.activeSelf == true)
         {
             if(Time.time > LastChangeTime_Infection + FadeDeltaTime)
             {
-                Infection_now.gameObject.SetActive(false);
-                Infection_old.gameObject.SetActive(false);
+                Infection.gameObject.SetActive(false);
             }
         }
 
-        if (Health_now.gameObject.activeSelf == true)
+        if (Health.gameObject.activeSelf == true)
         {
             if(Time.time > LastChangeTime_Health + FadeDeltaTime)
             {
-                Health_now.gameObject.SetActive(false);
-                Health_old.gameObject.SetActive(false);
+                Health.gameObject.SetActive(false);
             }
         }
     }
@@ -63,8 +65,7 @@ public class StateBarMod : MonoBehaviour
     {
         LastChangeTime_Infection = Time.time;
 
-        Infection_now.gameObject.SetActive(true);
-        Infection_old.gameObject.SetActive(true);
+        Infection.gameObject.SetActive(true);
 
         // 更新条长度
         UpdateBar(Infection_old.transform, _old, _total, OrginScale_Infection);
@@ -75,8 +76,7 @@ public class StateBarMod : MonoBehaviour
     {
         LastChangeTime_Health = Time.time;
 
-        Health_now.gameObject.SetActive(true);
-        Health_old.gameObject.SetActive(true);
+        Health.gameObject.SetActive(true);
 
         // 更新条长度
         UpdateBar(Health_old.transform, _old, _total, OrginScale_Health);
@@ -88,21 +88,17 @@ public class StateBarMod : MonoBehaviour
 
     private void UpdateBar(Transform _bar, float _valueX, float _total, float _originalScaleX)
     {
-        Vector3 _originalScale = _bar.localScale;
-        _originalScale.x = _originalScaleX;
-
-        float targetScaleX = (_valueX / _total) * _originalScale.x;
-
         // 缩放
         Vector3 newScale = _bar.localScale;
-        newScale.x = targetScaleX;
+        newScale.x = (_valueX / _total) * _originalScaleX;
         _bar.localScale = newScale;
 
-        // 位置纠正
-        float deltaX = (_originalScale.x - targetScaleX) * 0.5f;
-        Vector3 newPos = _bar.localPosition;
-        newPos.x = -deltaX;
-        _bar.localPosition = newPos;
+        float deltaScale = _originalScaleX - newScale.x;
+
+        Vector3 pos = _bar.localPosition;
+        pos.x = -deltaScale * 0.5f; // 向左移动
+        _bar.localPosition = pos;
+
     }
     #endregion
 }

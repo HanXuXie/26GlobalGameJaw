@@ -117,7 +117,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void PlayEffect(MusicEffectType _effectType, GameObject _linkObj)
+    public AudioSourceAttach PlayEffect(MusicEffectType _effectType, GameObject _linkObj)
     {
         AudioClip clip = Resources.Load<AudioClip>($"AudioClips/Effect/{_effectType}");
 
@@ -151,8 +151,9 @@ public class AudioManager : MonoBehaviour
                 }
             });
             audioAttack.Play();
-
+            return audioAttack;
         }
+        return null;
     }
 
     public void PlayMusic(MusicType _musicType, bool _playImmediately = false)

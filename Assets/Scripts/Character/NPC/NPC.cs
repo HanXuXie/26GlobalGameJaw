@@ -234,8 +234,9 @@ public class NPC : CharaBase
         OnInfectionChange += (old, now) =>
         {
             stateBar.OnInfectionChange(old, now, maxInfectionValue);
-            if (now == maxAlertValue)
+            if (now == maxAlertValue && !isInfection)
             {
+                isInfection = true;
                 HasInfected();
             }
         };

@@ -74,11 +74,14 @@ public class Chara_Player : CharaBase
 
     private bool onAttack;
     private float orginMoveSpeed;
+    private AudioSourceAttach audioAttach;
     // 开始普A
     public void DoAttack()
     {
+        audioAttach = AudioManager.instance.PlayEffect(MusicEffectType.持续普攻, gameObject);
+
         orginMoveSpeed = MoveSpeed;
-        MoveSpeed = orginMoveSpeed / 2;
+        MoveSpeed = orginMoveSpeed * 0.8f;
 
         Sprite_AttackRange.DOComplete();
 
@@ -102,6 +105,7 @@ public class Chara_Player : CharaBase
     // 停止普A
     public void EndAttack()
     {
+
         Sprite_AttackRange.DOComplete();
         onAttack = true;
 
@@ -118,6 +122,7 @@ public class Chara_Player : CharaBase
                 onAttack = false;
 
                 MoveSpeed = orginMoveSpeed;
+                audioAttach?.gameObject.SetActive(false);
             })
             .SetLink(Sprite_AttackRange.gameObject);
     }

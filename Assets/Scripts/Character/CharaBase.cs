@@ -118,6 +118,7 @@ public class CharaBase : MonoBehaviour
     protected virtual void Start()
     {
         OnNormalUpdate += Update_Move;
+        AppMain.instance.CharaRegist(this);
     }
 
     protected virtual void Update()
@@ -337,6 +338,7 @@ public class CharaBase : MonoBehaviour
     public void HasInfected()
     {
         transform.Find("HasInfected").gameObject.SetActive(true);
+        AppMain.instance.ChangeOneHunman();
     }
     #endregion
 }
