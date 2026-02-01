@@ -19,7 +19,7 @@ public class AnimControl_Chara : MonoBehaviour
     {
         if (Transform_LookAt != null)
         {
-            if((Transform_LookAt.position-transform.position).magnitude > 0.05f)
+            if(Mathf.Abs(Transform_LookAt.position.x - transform.position.x)> 0.05f)
             {
                 Flip(Transform_LookAt.position.x < transform.position.x);
             }
