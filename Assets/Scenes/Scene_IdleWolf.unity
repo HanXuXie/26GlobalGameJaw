@@ -2602,7 +2602,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.01
+  orthographic size: 8.13
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -67887,7 +67887,7 @@ MonoBehaviour:
   WarningChange_PreSecond: 0.2
   WarningChange_FindPlayer: 25
   WarningChange_FindInfector: 100
-  WarningChange_ChangeHunman: 10
+  WarningChange_ChangeHunman: 6
   IfBoom: 0
   CharaList: []
   InfectedCharaList: []
@@ -81408,60 +81408,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2250729537735098478, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250729537735098478, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2250729537735098478, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_IncludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6354307652293197240, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6404370524603336548, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6756505488336050388, guid: 7868190001b51414abef895a00b305a8,
         type: 3}
       propertyPath: m_Name
       value: Chara_Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6756505488336050388, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847745944648690193, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847745944648690193, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6847745944648690193, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: m_SortingLayerID
-      value: 67372501
-      objectReference: {fileID: 0}
-    - target: {fileID: 8127832865678529335, guid: 7868190001b51414abef895a00b305a8,
-        type: 3}
-      propertyPath: damage
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8239062730287559547, guid: 7868190001b51414abef895a00b305a8,
         type: 3}
