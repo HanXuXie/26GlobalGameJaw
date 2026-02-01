@@ -302,6 +302,7 @@ public class CharaBase : MonoBehaviour
             if (SceneMod.Instance.IsConnected(cellFrom, cellTo, out List<Vector3Int> cellPath))
             {
                 MovePath = SceneMod.Instance.Cell2WorldList(cellPath);
+                MoveTarget = transform.position;
                 moveIndex = 0;
                 return;
             }

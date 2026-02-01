@@ -149,6 +149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HasInfected
       objectReference: {fileID: 0}
+    - target: {fileID: 492948756057077733, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
     - target: {fileID: 499387987032609168, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -298,6 +303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333509092533050873, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4582293999587846581, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -500,10 +510,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3690037611468741563, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2583938630648307209}
-    - targetCorrespondingSourceObject: {fileID: 3690037611468741563, guid: 6a180327b36923b4b8ec1215d8466e35,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5390690907323978219}
     - targetCorrespondingSourceObject: {fileID: 3690037611468741563, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -694,20 +700,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6373216222318460487}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2583938630648307209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7730309786018817532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba793bd390d39dc48a678d43469fead4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anchor: {fileID: 0}
-  spriteRenderers: []
 --- !u!114 &5390690907323978219
 MonoBehaviour:
   m_ObjectHideFlags: 0

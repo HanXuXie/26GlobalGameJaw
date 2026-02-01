@@ -258,9 +258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clamp: 0
-  m_Health: 0
+  m_Health: 100
   MoveStateNow: 0
-  MoveSpeed: 0
+  MoveSpeed: 4
   ArriveWaitTime: 0
   ifLoop: 0
   PathingPointList: []
