@@ -29,7 +29,7 @@ public class NPC_Guard : NPC
                 hasAlert = true;
             }
             //获取行为
-            if (collider.GetComponentInParent<Chara_Player>() && collider.GetComponentInParent<Chara_Player>().PlayerState != PlayerState.Henshin)
+            if (collider.GetComponentInParent<Chara_Player>() && collider.GetComponentInParent<Chara_Player>().PlayerState == PlayerState.Henshin)
             {
 
                 Debug.Log("检测到玩家");
@@ -93,7 +93,7 @@ public class NPC_Guard : NPC
 
             if (Battle) return;
 
-            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange- 0.5)
+            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange - 0.5)
             {
                 StartCoroutine(SetMovePoint());
                 MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));

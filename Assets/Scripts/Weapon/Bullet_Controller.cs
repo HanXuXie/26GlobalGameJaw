@@ -10,8 +10,9 @@ public class Bullet_Controller : MonoBehaviour
     {
         if (collision == null) return;
 
-        NPC_Infected enemy = collision.GetComponent<NPC_Infected>();
+        CharaBase enemy = collision.GetComponent<CharaBase>();
         if (enemy == null) return;
+        if (enemy.Clamp != CharaClamp.Infected) return;
         enemy.TakeDamage(Damage);
         Destroy(gameObject);
     }

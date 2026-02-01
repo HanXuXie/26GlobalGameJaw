@@ -82,12 +82,17 @@ public class NPC_Infected : NPC
 
             if (Battle) return;
 
-            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange - 0.5)
+            float distance = Vector3.Distance(attackAimTarget.position, transform.position);
+
+            if (canSet && distance > Weapon.weaponRange - 0.5)
             {
                 StartCoroutine(SetMovePoint());
                 MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));
             }
-
+            else if (distance <= Weapon.weaponRange - 0.5)
+            {
+                StopMove();
+            }
 
         }
     }

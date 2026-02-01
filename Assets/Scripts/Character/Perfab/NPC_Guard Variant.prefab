@@ -19,6 +19,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2110265433705303404, guid: d3459138b3e2e7f4aa53030f14e73f17,
         type: 3}
+    - target: {fileID: 4231429675038437970, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4552960062576197678, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_IsActive
@@ -27,12 +32,12 @@ PrefabInstance:
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.01
+      value: 12.7
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.54
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -98,6 +103,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6783773290762424325}
   m_SourcePrefab: {fileID: 100100000, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
+--- !u!60 &1937459915621385299 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 639341235910940391, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1314022980402074292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6994884970558358008 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8299723040703992652, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -123,19 +134,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clamp: 0
-  m_Health: 0
+  m_Health: 100
   MoveStateNow: 0
-  MoveSpeed: 0
+  MoveSpeed: 3
   ArriveWaitTime: 0
   ifLoop: 0
   PathingPointList: []
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []
   StateNow: 0
-  Vision: {fileID: 0}
+  Vision: {fileID: 1937459915621385299}
   CurrentVisionTime: 0
   MaxVisionTime: 1
-  <visionRadius>k__BackingField: 1
+  <visionRadius>k__BackingField: 2
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -147,7 +158,7 @@ MonoBehaviour:
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 10
   m_currentAlertValue: 0
-  <alertRadius>k__BackingField: 5
+  <alertRadius>k__BackingField: 10
   <isAlert>k__BackingField: 0
   AlertTime: 0
   MaxAlertTime: 5
@@ -156,7 +167,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 2905633160062597508}
   MoveRadius: 0
   MoveCooldown: 0
 --- !u!1001 &7447956640826184159
@@ -227,11 +238,33 @@ PrefabInstance:
       propertyPath: Chara
       value: 
       objectReference: {fileID: 6783773290762424325}
+    - target: {fileID: 5696654322013874267, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696654322013874267, guid: 3c18f358f38fafa4f8913ccb1134366c,
+        type: 3}
+      propertyPath: weaponAttackInterval
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c18f358f38fafa4f8913ccb1134366c, type: 3}
+--- !u!114 &2905633160062597508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5696654322013874267, guid: 3c18f358f38fafa4f8913ccb1134366c,
+    type: 3}
+  m_PrefabInstance: {fileID: 7447956640826184159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfae4741e35c234cb192e9c7a852d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8437515678524493490 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1316290055371300717, guid: 3c18f358f38fafa4f8913ccb1134366c,

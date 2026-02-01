@@ -80,6 +80,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1142506825486709505, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1160960379960095566, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_Layer
@@ -101,6 +106,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1893106531297903329, guid: 52592981a0398a54188475142a7dde84,
         type: 3}
+    - target: {fileID: 4231429675038437970, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4552960062576197678, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_Layer
@@ -129,12 +139,12 @@ PrefabInstance:
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.35
+      value: 28.97
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.88
+      value: -1.21
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -174,6 +184,11 @@ PrefabInstance:
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016710432208750359, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -223,6 +238,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4469864149827588833}
+    - targetCorrespondingSourceObject: {fileID: 1160960379960095566, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6165183895657439176}
   m_SourcePrefab: {fileID: 100100000, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
 --- !u!60 &934271809144704200 stripped
 PolygonCollider2D:
@@ -230,6 +249,47 @@ PolygonCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 299584164393409071}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1456027608819083617 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1160960379960095566, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 299584164393409071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6165183895657439176
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456027608819083617}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 14.94
 --- !u!1 &2503343300079430272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2780409004090126511, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -250,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Chara: {fileID: 0}
   weaponDamage: 22
-  weaponAttackInterval: 2
+  weaponAttackInterval: 1
   weaponRange: 2
   weaponCooldown: 0
   isAttack: 1
@@ -275,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clamp: 1
-  m_Health: 0
+  m_Health: 100
   MoveStateNow: 0
   MoveSpeed: 5
   ArriveWaitTime: 0
@@ -287,7 +347,7 @@ MonoBehaviour:
   Vision: {fileID: 934271809144704200}
   CurrentVisionTime: 0
   MaxVisionTime: 1
-  <visionRadius>k__BackingField: 1
+  <visionRadius>k__BackingField: 2
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -308,7 +368,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 4469864149827588833}
   MoveRadius: 0
   MoveCooldown: 0
 --- !u!4 &8576784520513653091 stripped

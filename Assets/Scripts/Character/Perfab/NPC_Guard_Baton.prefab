@@ -22,12 +22,12 @@ PrefabInstance:
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.75
+      value: 14.45
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.16
+      value: -6.22
       objectReference: {fileID: 0}
     - target: {fileID: 5685340455199446945, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
@@ -128,6 +128,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1277419843063736967}
   m_SourcePrefab: {fileID: 100100000, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
+--- !u!60 &2197067543664852051 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 639341235910940391, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1631121364542155444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7317331369525033464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8299723040703992652, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -153,19 +159,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Clamp: 0
-  m_Health: 0
+  m_Health: 100
   MoveStateNow: 0
-  MoveSpeed: 0
+  MoveSpeed: 3
   ArriveWaitTime: 0
   ifLoop: 0
   PathingPointList: []
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []
   StateNow: 0
-  Vision: {fileID: 0}
+  Vision: {fileID: 2197067543664852051}
   CurrentVisionTime: 0
   MaxVisionTime: 1
-  <visionRadius>k__BackingField: 1
+  <visionRadius>k__BackingField: 1.5
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -177,7 +183,7 @@ MonoBehaviour:
   <maxAlertValue>k__BackingField: 100
   <alertChangeSpeed>k__BackingField: 10
   m_currentAlertValue: 0
-  <alertRadius>k__BackingField: 5
+  <alertRadius>k__BackingField: 7.5
   <isAlert>k__BackingField: 0
   AlertTime: 0
   MaxAlertTime: 5
@@ -186,7 +192,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0
-  Weapon: {fileID: 0}
+  Weapon: {fileID: 6572910976122160158}
   MoveRadius: 0
   MoveCooldown: 0
 --- !u!1001 &5994102237482657219
@@ -202,6 +208,16 @@ PrefabInstance:
       propertyPath: Chara
       value: 
       objectReference: {fileID: 1277419843063736967}
+    - target: {fileID: 583497142807568861, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
+        type: 3}
+      propertyPath: weaponDamage
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 583497142807568861, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
+        type: 3}
+      propertyPath: weaponAttackInterval
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7666255565841023840, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
         type: 3}
       propertyPath: m_Name
@@ -353,3 +369,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5994102237482657219}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6572910976122160158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 583497142807568861, guid: 57117c4d765ca9749b60f13f4ed1c5a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5994102237482657219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4128489054420854435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8524cb1375b7ce8429a664a9c178bcf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
