@@ -112,6 +112,7 @@ public class CharaBase : MonoBehaviour
         OnHealthChange += (old, now) =>
         {
             stateBar.OnHealthChange(old, now, MaxHealth);
+            if(now == 0) Dead();
         };
     }
 
@@ -345,4 +346,8 @@ public class CharaBase : MonoBehaviour
         AppMain.instance.ChangeOneHunman(this);
     }
     #endregion
+    public void Dead()
+    {
+        Destroy(gameObject);
+    }
 }
