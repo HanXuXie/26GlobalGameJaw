@@ -25,18 +25,12 @@ public class NPC_Infected : NPC
                 Debug.Log("检测到警卫");
                 CurrentAlertValue += 100;
 
-                visionAttach.SetLookAt(collider.transform);
-                animControl.LookAt(collider.transform);
-
                 hasAlert = true;
             }
             if (collider.GetComponentInParent<NPC_Civilian>())
             {
                 Debug.Log("检测到良民");
                 CurrentAlertValue += 100;
-
-                visionAttach.SetLookAt(collider.transform);
-                animControl.LookAt(collider.transform);
 
                 hasAlert = true;
             }
@@ -82,12 +76,13 @@ public class NPC_Infected : NPC
         if (attackTarget != null)
         {
 
+            Debug.Log("感染者使用武器");
 
             Battle = Weapon.AttackMode(attackTarget);
 
             if (Battle) return;
 
-            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange)
+            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange - 0.5)
             {
                 StartCoroutine(SetMovePoint());
                 MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));

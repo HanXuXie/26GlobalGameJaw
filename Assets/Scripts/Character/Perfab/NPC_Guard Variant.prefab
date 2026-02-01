@@ -139,6 +139,7 @@ MonoBehaviour:
   detectionMask:
     serializedVersion: 2
     m_Bits: 0
+  canSet: 1
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
   <InfectionResistance>k__BackingField: 50
@@ -151,6 +152,7 @@ MonoBehaviour:
   AlertTime: 0
   MaxAlertTime: 5
   <isAttack>k__BackingField: 0
+  Battle: 0
   attackTarget: {fileID: 0}
   attackAimTarget: {fileID: 0}
   <hasWeapon>k__BackingField: 0

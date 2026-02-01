@@ -26,11 +26,6 @@ public class NPC_Guard : NPC
                 Debug.Log("检测到感染者");
                 CurrentAlertValue += 100;
 
-                visionAttach.SetLookAt(collider.transform);
-                animControl.LookAt(collider.transform);
-
-
-
                 hasAlert = true;
             }
             //获取行为
@@ -91,11 +86,14 @@ public class NPC_Guard : NPC
 
         if (attackTarget != null)
         {
+
+            Debug.Log("警卫使用武器");
+
             Battle = Weapon.AttackMode(attackTarget);
 
             if (Battle) return;
 
-            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange)
+            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange- 0.5)
             {
                 StartCoroutine(SetMovePoint());
                 MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));
