@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime;
 using UnityEngine;
 
 public class NPC_Civilian : NPC
@@ -21,20 +20,16 @@ public class NPC_Civilian : NPC
 
                 Debug.Log("检测到感染者");
                 CurrentAlertValue += 100;
-                attackTarget = collider.GetComponentInParent<NPC_Infected>();
-
-                AttackTargetUpdate();
-
                 hasAlert = true;
             }
             //获取玩家行为
-            if (collider.GetComponentInParent<Chara_Player>() && collider.GetComponentInParent<Chara_Player>().PlayerState != PlayerState.Henshin)
+            if (collider.GetComponentInParent<Chara_Player>())
             {
-
                 Debug.Log("检测到玩家");
                 CurrentAlertValue += alertChangeSpeed * Time.deltaTime;
                 hasAlert = true;
             }
+
 
         }
 
@@ -58,38 +53,4 @@ public class NPC_Civilian : NPC
 
     }
 
-    protected override void AlertUpdate()
-    {
-        base.AlertUpdate();
-
-        Vector3 distance = transform.position - attackTarget.transform.position;
-
-
-        if (canSet)
-        {
-            StartCoroutine(SetMovePoint());
-            MoveTo((MoveSpeed * distance.normalized) + transform.position);
-        }
-
-    }
-
-    protected override void AttackUpdate()
-    {
-        base.AttackUpdate();
-
-        Vector3 distance = transform.position - attackTarget.transform.position;
-        if (canSet)
-        {
-            StartCoroutine(SetMovePoint());
-            MoveTo((MoveSpeed * distance.normalized) + transform.position);
-        }
-
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        AttackTargetUpdate();
-    }
 }
