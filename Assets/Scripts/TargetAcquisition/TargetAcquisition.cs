@@ -47,16 +47,9 @@ public static class TargetAcquisition
         return targets[num];
     }
 
-<<<<<<< Updated upstream
-    //public static Vector3 HalfRoad(Vector3 StartPoint, Vector3 FinalPoint)
-    //{
-
-    //}
-=======
     public static Vector3 HalfRoad(Vector3 StartPoint, Vector3 FinalPoint)
     {
         return (StartPoint + FinalPoint) / 2;
     }
->>>>>>> Stashed changes
 
 }
