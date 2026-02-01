@@ -164,6 +164,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7021825482523835406, guid: b2d2f9f389637ca4f92bc1df475da7f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7039207147014747843, guid: b2d2f9f389637ca4f92bc1df475da7f6,
         type: 3}
       propertyPath: m_Controller
@@ -249,7 +254,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 14.94
+  m_Radius: 55.4
 --- !u!1 &2503343300079430272 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2780409004090126511, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -297,7 +302,7 @@ MonoBehaviour:
   Clamp: 1
   m_Health: 100
   MoveStateNow: 0
-  MoveSpeed: 5
+  MoveSpeed: 9
   ArriveWaitTime: 0
   ifLoop: 0
   PathingPointList: []
