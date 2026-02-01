@@ -49,7 +49,7 @@ public class NPC_Civilian : NPC
     {
         base.ChangeInfection(infectionSpeed);
 
-        CurrentInfectionValue += infectionSpeed * Time.deltaTime / (InfectionResistance + infectionSpeed * Time.deltaTime);
+        CurrentInfectionValue += infectionSpeed * Time.deltaTime / InfectionResistance;
 
         if (CurrentInfectionValue > maxInfectionValue)
         {

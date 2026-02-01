@@ -36,6 +36,7 @@ public class NPC_Guard : NPC
 
                 Debug.Log("检测到玩家");
                 CurrentAlertValue += alertChangeSpeed * Time.deltaTime;
+
                 hasAlert = true;
             }
 
@@ -54,6 +55,11 @@ public class NPC_Guard : NPC
         base.ChangeInfection(infectionSpeed);
 
         CurrentInfectionValue += infectionSpeed * Time.deltaTime / InfectionResistance;
+
+        if (CurrentInfectionValue > maxInfectionValue)
+        {
+            CurrentInfectionValue = maxInfectionValue;
+        }
     }
 
     protected override void AlertUpdate()

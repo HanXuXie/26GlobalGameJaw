@@ -375,6 +375,7 @@ public class NPC : CharaBase
         InfectionDetection();
         AttackDetection();
         AttackTargetUpdate();
+        Vision.gameObject.SetActive(true);
     }
 
 
