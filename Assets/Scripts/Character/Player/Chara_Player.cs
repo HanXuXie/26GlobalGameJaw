@@ -41,6 +41,11 @@ public class Chara_Player : CharaBase
             animControl.Flip(Speed.x < 0);
         }
 
+        if(Speed.magnitude > 0.05f)
+        {
+            animControl.onWalk(Speed.magnitude > 0.05f);
+        }
+
         // 右键移动
         if (Input.GetMouseButtonDown(1))
         {

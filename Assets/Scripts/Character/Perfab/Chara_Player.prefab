@@ -531,6 +531,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8934965836779838195, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1783
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934965836779838195, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5219312649914715401, guid: 6a180327b36923b4b8ec1215d8466e35, type: 3}
