@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using UnityEngine.Animations;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class NPC_Guard : NPC
 {
@@ -22,15 +25,23 @@ public class NPC_Guard : NPC
 
                 Debug.Log("检测到感染者");
                 CurrentAlertValue += 100;
+
+                visionAttach.SetLookAt(collider.transform);
+                animControl.LookAt(collider.transform);
+
+
+
                 hasAlert = true;
             }
             //获取行为
-            if (collider.GetComponentInParent<Chara_Player>())
+            if (collider.GetComponentInParent<Chara_Player>() && collider.GetComponentInParent<Chara_Player>().PlayerState != PlayerState.Henshin)
             {
+
                 Debug.Log("检测到玩家");
                 CurrentAlertValue += alertChangeSpeed * Time.deltaTime;
                 hasAlert = true;
             }
+
 
         }
 
@@ -51,20 +62,18 @@ public class NPC_Guard : NPC
     protected override void AlertUpdate()
     {
         base.AlertUpdate();
+        Debug.Log("警戒状态");
+
+        if (attackTarget != null)
         {
-            Debug.Log("警戒状态");
+            visionAttach.SetLookAt(attackAimTarget);
+            animControl.LookAt(attackAimTarget);
+        }
+        else
+        {
+            visionAttach.UnSetLookAt();
+        }
 
-            if (attackTarget != null)
-            {
-                visionAttach.SetLookAt(attackAimTarget);
-                animControl.LookAt(attackAimTarget);
-            }
-            else
-            {
-                visionAttach.UnSetLookAt();
-            }
-
-        };
     }
 
     protected override void AttackUpdate()
@@ -82,8 +91,20 @@ public class NPC_Guard : NPC
 
         if (attackTarget != null)
         {
+<<<<<<< Updated upstream
             Weapon.AttackMode(attackTarget);
             //MoveTo();
+=======
+            Battle = Weapon.AttackMode(attackTarget);
+
+            if (Battle) return;
+
+            if (canSet && Vector3.Distance(attackAimTarget.position, transform.position) > Weapon.weaponRange)
+            {
+                StartCoroutine(SetMovePoint());
+                MoveTo(TargetAcquisition.HalfRoad(this.transform.position, attackTarget.transform.position));
+            }
+>>>>>>> Stashed changes
         }
     }
 
@@ -91,4 +112,5 @@ public class NPC_Guard : NPC
     {
         base.Update();
     }
+
 }
