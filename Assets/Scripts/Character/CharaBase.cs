@@ -329,6 +329,12 @@ public class CharaBase : MonoBehaviour
         }
     }
 
+    public void ForceStopMove()
+    {
+        MoveTarget = Vector3.zero;
+        MovePath.Clear();
+    }
+
     public void TakeDamage(float damage)
     {
         Health -= damage;
