@@ -43,6 +43,7 @@ public enum MusicEffectType
     棍击,
     枪声,
     噬咬,
+    受击,
 }
 
 public class AudioManager : MonoBehaviour
