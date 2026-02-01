@@ -14,6 +14,7 @@ public class Bullet_Controller : MonoBehaviour
         if (enemy == null) return;
         if (enemy.Clamp != CharaClamp.Infected) return;
         enemy.TakeDamage(Damage);
+
         Destroy(gameObject);
     }
 }

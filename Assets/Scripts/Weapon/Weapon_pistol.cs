@@ -29,6 +29,8 @@ public class Weapon_pistol : WeaponBase
 
         bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * 20;
 
+        AudioManager.instance.PlayEffect(MusicEffectType.枪声, gameObject);
+
         StartCoroutine(DestroyBullet(bullet));
 
         weaponCooldown = weaponAttackInterval;

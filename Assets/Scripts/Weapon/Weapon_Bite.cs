@@ -26,7 +26,9 @@ public class Weapon_Bite : WeaponBase
 
         weaponCooldown = weaponAttackInterval;
 
-        Instantiate(BitePrefab, aimTran,target.transform.rotation,target.transform);
+        GameObject Object = Instantiate(BitePrefab, aimTran, target.transform.rotation, target.transform);
+
+        AudioManager.instance.PlayEffect(MusicEffectType.噬咬, Object);
 
         target.TakeDamage(weaponDamage);
 
