@@ -62,7 +62,10 @@ public class NPC_Civilian : NPC
     {
         base.AlertUpdate();
 
+        if (attackTarget == null) return;
+
         Vector3 distance = transform.position - attackTarget.transform.position;
+
 
 
         if (canSet)

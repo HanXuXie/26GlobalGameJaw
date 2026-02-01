@@ -208,12 +208,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6165183895657439176}
   m_SourcePrefab: {fileID: 100100000, guid: b2d2f9f389637ca4f92bc1df475da7f6, type: 3}
---- !u!60 &934271809144704200 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 639341235910940391, guid: b2d2f9f389637ca4f92bc1df475da7f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 299584164393409071}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1456027608819083617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1160960379960095566, guid: b2d2f9f389637ca4f92bc1df475da7f6,
@@ -309,7 +303,7 @@ MonoBehaviour:
   MoveTarget: {x: 0, y: 0, z: 0}
   MovePath: []
   StateNow: 0
-  Vision: {fileID: 934271809144704200}
+  Vision: {fileID: 0}
   CurrentVisionTime: 0
   MaxVisionTime: 1
   <visionRadius>k__BackingField: 2
@@ -317,6 +311,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   canSet: 1
+  CharaBases: []
   <maxInfectionValue>k__BackingField: 100
   m_currentInfectionValue: 0
   <InfectionResistance>k__BackingField: 10000
