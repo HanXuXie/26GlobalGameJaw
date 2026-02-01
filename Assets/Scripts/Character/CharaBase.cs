@@ -151,11 +151,13 @@ public class CharaBase : MonoBehaviour
             if (CanEnterAlert != null && CanEnterAlert.Invoke())
             {
                 StateNow = CharaState.Alert;
+                transform.Find("Alert").gameObject.SetActive(true);
             }
             // 尝试进入攻击
             if (CanEnterAttack != null && CanEnterAttack.Invoke())
             {
                 StateNow = CharaState.Attack;
+                transform.Find("Alert").gameObject.SetActive(true);
             }
         }
         // 警惕状态
@@ -165,11 +167,13 @@ public class CharaBase : MonoBehaviour
             if (CanEnterNormal != null && CanEnterNormal.Invoke())
             {
                 StateNow = CharaState.Normal;
+                transform.Find("Alert").gameObject.SetActive(false);
             }
             // 尝试进入攻击
             if (CanEnterAttack != null && CanEnterAttack.Invoke())
             {
                 StateNow = CharaState.Attack;
+                transform.Find("Alert").gameObject.SetActive(true);
             }
         }
         // 攻击状态
@@ -179,11 +183,13 @@ public class CharaBase : MonoBehaviour
             if (CanEnterAlert != null && CanEnterAlert.Invoke())
             {
                 StateNow = CharaState.Alert;
+                transform.Find("Alert").gameObject.SetActive(true);
             }
             // 尝试进入正常
             if (CanEnterNormal != null && CanEnterNormal.Invoke())
             {
                 StateNow = CharaState.Normal;
+                transform.Find("Alert").gameObject.SetActive(false);
             }
         }
 

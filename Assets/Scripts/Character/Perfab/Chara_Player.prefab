@@ -165,6 +165,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 492948756057077733, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.61
+      objectReference: {fileID: 0}
     - target: {fileID: 499387987032609168, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -340,6 +345,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chara_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4333509092533050873, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4582293999587846581, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -364,6 +374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826064575768082969, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5144104698146683657, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}
@@ -475,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.803
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448227482528480873, guid: 6a180327b36923b4b8ec1215d8466e35,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7636135660071993399, guid: 6a180327b36923b4b8ec1215d8466e35,
         type: 3}

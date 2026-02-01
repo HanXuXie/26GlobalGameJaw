@@ -66,6 +66,9 @@ public class AppMain : MonoBehaviour
     public Image Image_HunmanStrip;
     public Image Image_InfectionStrip;
 
+    public GameObject BoomEffectPerfab;
+    public GameObject InfectonPerfab;
+
     private void Awake()
     {
         if(instance == null)
@@ -120,7 +123,29 @@ public class AppMain : MonoBehaviour
     // 爆发感染
     public void Boom()
     {
+        // 关闭视野
+        foreach(var chara in CharaList)
+        {
+            if(chara != null)
+                chara.transform.Find("Vision")?.gameObject.SetActive(false);
+        }
 
+        // 转变感染者
+        var InfectedCharaListChache = new List<CharaBase>(InfectedCharaList);
+        foreach (var chara in InfectedCharaListChache)
+        {
+            if(chara != null)
+            {
+                var boomObj = Instantiate(BoomEffectPerfab, transform, transform);
+                boomObj.transform.position = chara.transform.position;
+                boomObj.gameObject.SetActive(true);
+
+                var infectonObj = Instantiate(InfectonPerfab);
+                infectonObj.transform.position = chara.transform.position;
+
+                Destroy(chara.gameObject);
+            }
+        }
     }
 
     // 转变一个人类
