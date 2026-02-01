@@ -176,6 +176,14 @@ public class NPC : CharaBase
         {
             CurrentAlertValue = 0;
         }
+        if(CurrentAlertValue == 0)
+            transform.Find("Alert").gameObject.SetActive(false);
+        else
+            transform.Find("Alert").gameObject.SetActive(true);
+
+        var orginColor = transform.Find("Alert/Sprite").GetComponent<SpriteRenderer>().color;
+        orginColor.a = CurrentAlertValue / maxAlertValue;
+        transform.Find("Alert/Sprite").GetComponent<SpriteRenderer>().color = orginColor;
     }
 
     public virtual void ChangeInfection(float infectionSpeed)
